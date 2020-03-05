@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 
 import ReactPlayer from 'react-player'
 
+// TEST URL:
+// https://www.youtube.com/watch?v=hE2Ira-Cwxo
+
 import {
   controlStyle,
   playerStyle,
@@ -11,6 +14,8 @@ import {
 const Player = ({ url }) => {
   const player = useRef(null)
   const [playing, setPlaying] = useState(false)
+  const [ready, setReady] = useState(false)
+  const [duration, setDuration] = useState(0)
 
   useEffect(() => {
     console.log('playing', playing)
@@ -18,6 +23,7 @@ const Player = ({ url }) => {
 
   const onReady = () => {
     console.log('onReady')
+    setReady(true)
   }
 
   const handlePlay = () => {
@@ -34,12 +40,14 @@ const Player = ({ url }) => {
     // setPlaying(false)
   }
 
+  const handleDuration = duration => setDuration(duration)
+
   return (
     <>
       <div className={controlStyle}>
-        <button onClick={togglePlay}>
-          {playing === true ? 'PAUSE' : 'PLAY'}
-        </button>
+        {ready && (
+          <button onClick={togglePlay}>{playing ? 'PAUSE' : 'PLAY'}</button>
+        )}
       </div>
       <div className={playerStyle}>
         <ReactPlayer
@@ -51,6 +59,7 @@ const Player = ({ url }) => {
           playing={playing}
           onPlay={handlePlay}
           onPause={handlePause}
+          onDuration={handleDuration}
           width="100%"
           height="100%"
           config={{

@@ -1,13 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 
 import Player from '../components/react-player/Player'
 
 import { home, container, form } from './home.module.scss'
 
-const url = 'https://www.youtube.com/watch?v=2e9diL0xTN4'
-
 const Home = () => {
-  const videoUrl = useRef(null)
+  const [vid, setVid] = useState('')
+
+  const onChange = e => {
+    setVid(e.target.value)
+  }
 
   return (
     <div className={home}>
@@ -17,12 +19,16 @@ const Home = () => {
           <input
             name="videoUrl"
             type="text"
+            value={vid}
+            onChange={onChange}
             placeholder="Video Url..."
-            ref={videoUrl}
           />
-          <button type="submit">Submit</button>
+          {/* <button type="submit">
+            Go
+          </button> */}
         </form>
-        <video src={videoUrl} autoPlay />
+
+        <Player url={vid} />
       </div>
     </div>
   )

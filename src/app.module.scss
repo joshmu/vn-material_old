@@ -3,3 +3,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.container {
+  background-color: lightgrey;
+  flex: 1; // fill up the entire available space
+}

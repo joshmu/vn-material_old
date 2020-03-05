@@ -1,16 +1,15 @@
 import React from 'react'
 
 import Header from './layout/Header'
-import Body from './layout/Body'
 import Footer from './layout/Footer'
 
-import appStyles from './app.module.scss'
+import { app, container } from './app.module.scss'
 
 function App() {
   return (
-    <div className={appStyles.app}>
+    <div className={app}>
       <Header />
-      <Body />
+      <div className={container}>Lettuce begin...</div>
       <Footer />
     </div>
   )

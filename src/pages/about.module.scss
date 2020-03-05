@@ -1,0 +1,31 @@
+.about {
+  // background-color: lightcoral;
+  height: 100%;
+  display: flex;
+}
+
+.container {
+  flex: 1;
+  // background-color: #ecfefede;
+  text-align: center;
+  padding-top: 10%;
+
+  h2 {
+    padding: 1rem;
+  }
+
+  p {
+    padding: 0.5rem;
+  }
+
+  ul {
+    margin-top: 1rem;
+    li {
+      padding: 0.5rem;
+    }
+  }
+
+  a {
+    font-style: italic;
+  }
+}

@@ -1,0 +1,29 @@
+.home {
+  // background-color: white;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  flex: 1;
+  // background-color: lightsalmon;
+  text-align: center;
+
+  padding-top: 10%;
+
+  h2 {
+    padding: 1rem;
+  }
+
+  p {
+    padding: 0.5rem;
+  }
+
+  ul {
+    margin-top: 1rem;
+    li {
+      padding: 0.5rem;
+    }
+  }
+}

@@ -1,4 +1,28 @@
 * {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Roboto', sans-serif;
+  background: rgb(245, 244, 255);
+  background: linear-gradient(
+    153deg,
+    rgba(245, 244, 255, 1) 0%,
+    rgba(221, 221, 245, 1) 37%,
+    rgba(215, 248, 255, 1) 100%
+  );
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #3e3e3e;
+
+  &:hover {
+    color: #112121;
+  }
 }

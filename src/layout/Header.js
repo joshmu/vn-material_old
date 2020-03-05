@@ -1,14 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import headerStyles from './header.module.scss'
+import { header, initial } from './header.module.scss'
 
 const Header = () => {
   return (
-    <nav className={headerStyles.header}>
-      <h1>VideoNote</h1>
+    <nav className={header}>
+      <h1>
+        <Link to="/">
+          <span className={initial}>V</span>ideo
+          <span className={initial}>N</span>ote
+        </Link>
+      </h1>
       <ul>
-        <li>About</li>
-        <li>Contact</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
     </nav>
   )

@@ -1,13 +1,13 @@
 import React, { useRef } from 'react'
 
-import Player from '../components/Player'
+import Player from '../components/react-player/Player'
 
 import { home, container, form } from './home.module.scss'
 
 const url = 'https://www.youtube.com/watch?v=2e9diL0xTN4'
 
 const Home = () => {
-  const videoUrl = useRef('')
+  const videoUrl = useRef(null)
 
   return (
     <div className={home}>
@@ -18,12 +18,11 @@ const Home = () => {
             name="videoUrl"
             type="text"
             placeholder="Video Url..."
-            useRef={videoUrl}
+            ref={videoUrl}
           />
           <button type="submit">Submit</button>
         </form>
-
-        <Player url={url} />
+        <video src={videoUrl} autoPlay />
       </div>
     </div>
   )

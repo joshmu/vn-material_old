@@ -1,0 +1,22 @@
+.playerStyle {
+  background-color: lightsalmon;
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.controlStyle {
+  button {
+    border: none;
+    padding: 1rem;
+    background-color: lightslategrey;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.reactPlayerStyle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

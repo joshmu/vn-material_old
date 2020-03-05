@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <div className={footerStyles.footer}>
       <p>
-        Made with{' '}
+        Developed with{' '}
         <i className="fa fa-heart" style={{ color: 'rgb(250, 100, 100)' }}></i>{' '}
         by{' '}
-        <a href="https://joshmu.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://jos.com" target="_blank" rel="noopener noreferrer">
           <strong>MU</strong>
         </a>
         {' ©'}

@@ -1,4 +1,4 @@
-# Videonote
+# VideoNote
 
 _Create timestamped notes based off video._
 

@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-import { home, container } from './home.module.scss'
+import Player from '../components/Player'
+
+import { home, container, form } from './home.module.scss'
+
+const url = 'https://www.youtube.com/watch?v=2e9diL0xTN4'
 
 const Home = () => {
+  const videoUrl = useRef('')
+
   return (
     <div className={home}>
       <div className={container}>
-        <h2>Let's get started!</h2>
-        <p>When you are ready lets drop in your video. ;)</p>
+        <form className={form}>
+          <label htmlFor="videoUrl"></label>
+          <input
+            name="videoUrl"
+            type="text"
+            placeholder="Video Url..."
+            useRef={videoUrl}
+          />
+          <button type="submit">Submit</button>
+        </form>
+
+        <Player url={url} />
       </div>
     </div>
   )

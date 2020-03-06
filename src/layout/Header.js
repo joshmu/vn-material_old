@@ -15,7 +15,12 @@ const Header = () => {
       <ul>
         <li>
           <NavLink activeClassName={active} exact to="/">
-            Home
+            Video
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName={active} exact to="/todo">
+            Todo
           </NavLink>
         </li>
         <li>

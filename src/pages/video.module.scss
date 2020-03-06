@@ -1,8 +1,11 @@
-.home {
+.videoStyle {
   // background-color: white;
   display: flex;
   height: 100%;
   width: 100%;
+  label {
+    display: none;
+  }
 }
 
 .container {
@@ -43,14 +46,5 @@
     &:focus {
       border: none;
     }
-  }
-  button {
-    height: inherit;
-    border: none;
-    padding: 0 1rem;
-    background-color: lightslategrey;
-    color: white;
-    letter-spacing: 2px;
-    text-transform: uppercase;
   }
 }

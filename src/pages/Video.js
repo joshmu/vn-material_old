@@ -4,9 +4,9 @@ import Player from '../components/react-player/Player'
 
 import { playerContext } from '../context/player/PlayerState'
 
-import { home, container, form } from './home.module.scss'
+import { videoStyle, container, form } from './video.module.scss'
 
-const Home = () => {
+const Video = () => {
   const [url, setUrl] = useState('')
 
   const { loadVideo, ready } = useContext(playerContext)
@@ -21,12 +21,13 @@ const Home = () => {
   }
 
   return (
-    <div className={home}>
+    <div className={videoStyle}>
       <div className={container}>
         {!ready && (
           <form className={form} onSubmit={onSubmit}>
-            <label htmlFor="videoUrl" />
+            <label htmlFor="videoUrl">Video URL</label>
             <input
+              id="videoUrl"
               name="videoUrl"
               type="text"
               value={url}
@@ -43,4 +44,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Video

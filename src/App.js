@@ -6,8 +6,9 @@ import Footer from './layout/Footer'
 
 import { PlayerState } from './context/player/PlayerState'
 
-import Home from './pages/Home'
+import Video from './pages/Video'
 import About from './pages/About'
+import Todo from './pages/Todo'
 
 import { app, container } from './app.module.scss'
 
@@ -19,7 +20,8 @@ function App() {
           <Header />
           <div className={container}>
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={Video} />
+              <Route exact path="/todo" component={Todo} />
               <Route exact path="/about" component={About} />
             </Switch>
           </div>

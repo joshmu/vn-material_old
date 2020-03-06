@@ -26,3 +26,13 @@ a {
     color: #112121;
   }
 }
+
+button {
+  height: inherit;
+  border: none;
+  padding: 0 1rem;
+  background-color: lightslategrey;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { aboutStyle } from './about.module.scss'
+import styles from '../styles.module.scss'
 
 const About = () => {
   return (
-    <div className={aboutStyle}>
+    <div className={styles.about}>
       <h2>Thank you.</h2>
       <p>We hope you are enjoying VideoNote!</p>
       <p>Feel free to say hello and let us know what you think. =)</p>

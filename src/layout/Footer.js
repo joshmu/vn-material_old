@@ -1,10 +1,10 @@
 import React from 'react'
 
-import footerStyles from './footer.module.scss'
+import style from '../styles.module.scss'
 
 const Footer = () => {
   return (
-    <div className={footerStyles.footer}>
+    <div className={style.footer}>
       <p>
         Developed with{' '}
         <i className="fa fa-heart" style={{ color: 'rgb(250, 100, 100)' }}></i>{' '}

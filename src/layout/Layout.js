@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { layoutStyle, container } from './layout.module.scss'
+import style from '../styles.module.scss'
 
 const Layout = props => {
   return (
-    <div className={layoutStyle}>
-      <div className={container}>{props.children}</div>
+    <div className={style.layout}>
+      <div className={style.container}>{props.children}</div>
     </div>
   )
 }

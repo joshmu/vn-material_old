@@ -5,7 +5,7 @@ import Todo from '../components/Todo'
 
 import { playerContext } from '../context/player/PlayerState'
 
-import { videoStyle, formStyle } from './video.module.scss'
+import style from '../styles.module.scss'
 
 const Video = () => {
   const [url, setUrl] = useState('')
@@ -22,9 +22,9 @@ const Video = () => {
   }
 
   return (
-    <div className={videoStyle}>
+    <div className={style.video}>
       {!ready && (
-        <form className={formStyle} onSubmit={onSubmit}>
+        <form className={style.form} onSubmit={onSubmit}>
           <label htmlFor="videoUrl">Video URL</label>
           <input
             id="videoUrl"

@@ -1,30 +1,30 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { headerStyle, initial, active } from './header.module.scss'
+import style from '../styles.module.scss'
 
 const Header = () => {
   return (
-    <nav className={headerStyle}>
+    <nav className={style.header}>
       <h1>
         <NavLink exact to="/">
-          <span className={initial}>V</span>ideo
-          <span className={initial}>N</span>ote
+          <span className={style.logo}>V</span>ideo
+          <span className={style.logo}>N</span>ote
         </NavLink>
       </h1>
       <ul>
         <li>
-          <NavLink activeClassName={active} exact to="/">
+          <NavLink activeClassName={style.active} exact to="/">
             Video
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName={active} exact to="/todo">
+          <NavLink activeClassName={style.active} exact to="/todo">
             Todo
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName={active} exact to="/about">
+          <NavLink activeClassName={style.active} exact to="/about">
             About
           </NavLink>
         </li>

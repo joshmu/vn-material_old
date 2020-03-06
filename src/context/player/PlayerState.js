@@ -26,8 +26,16 @@ const PlayerState = props => {
   // reducer handles state manipulation
   const [state, dispatch] = useReducer(playerReducer, initialState)
 
+  // hold all esential data in 'v' which is given to value prop (this avoids the mistake of forgetting to add actions as props)
+  const v = {
+    playing: state.playing,
+    ready: state.ready,
+    duration: state.duration,
+    url: state.url
+  }
+
   // actions
-  const loadVideo = url => {
+  v.loadVideo = url => {
     console.log('load video', url)
     dispatch({
       type: LOAD_VIDEO,
@@ -35,42 +43,42 @@ const PlayerState = props => {
     })
   }
 
-  const togglePlay = () => {
+  v.togglePlay = () => {
     console.log('toggling play/pause')
     dispatch({
       type: TOGGLE_PLAY
     })
   }
 
-  const onReady = () => {
+  v.onReady = () => {
     console.log('onReady')
     dispatch({
       type: ON_READY
     })
   }
 
-  const onStart = () => {
+  v.onStart = () => {
     console.log('onStart')
     dispatch({
       type: ON_START
     })
   }
 
-  const onPlay = () => {
+  v.onPlay = () => {
     console.log('onPlay')
     dispatch({
       type: ON_PLAY
     })
   }
 
-  const onPause = () => {
+  v.onPause = () => {
     console.log('onPause')
     dispatch({
       type: ON_PAUSE
     })
   }
 
-  const onDuration = duration => {
+  v.onDuration = duration => {
     console.log('onDuration')
     dispatch({
       type: ON_DURATION,
@@ -80,23 +88,7 @@ const PlayerState = props => {
 
   // return provider
   return (
-    <playerContext.Provider
-      value={{
-        playing: state.playing,
-        ready: state.ready,
-        duration: state.duration,
-        url: state.url,
-        loadVideo,
-        togglePlay,
-        onReady,
-        onStart,
-        onPlay,
-        onPause,
-        onDuration
-      }}
-    >
-      {props.children}
-    </playerContext.Provider>
+    <playerContext.Provider value={v}>{props.children}</playerContext.Provider>
   )
 }
 

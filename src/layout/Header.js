@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { header, initial, active } from './header.module.scss'
+import { headerStyle, initial, active } from './header.module.scss'
 
 const Header = () => {
   return (
-    <nav className={header}>
+    <nav className={headerStyle}>
       <h1>
         <NavLink exact to="/">
           <span className={initial}>V</span>ideo

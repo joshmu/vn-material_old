@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
-import Layout from '../layout/Layout'
+import { playerContext } from '../context/player/PlayerState'
 
-import { todoStyle, container, formStyle } from './todo.module.scss'
+import { todoStyle, formStyle } from './todo.module.scss'
 
 const Todo = () => {
   const [state, setState] = useState({
@@ -10,11 +10,14 @@ const Todo = () => {
     todos: []
   })
 
+  const { progress } = useContext(playerContext)
+
   const onSubmit = e => {
     e.preventDefault()
+    const newTodo = `${state.current} (${progress.playedSeconds.toFixed(2)}s)`
     setState({
       current: '',
-      todos: [...state.todos, state.current]
+      todos: [...state.todos, newTodo]
     })
   }
 
@@ -40,7 +43,8 @@ const Todo = () => {
         <button>Add</button>
       </form>
       <ul>
-        {state.todos.length > 0 && state.todos.map(todo => <li>{todo}</li>)}
+        {state.todos.length > 0 &&
+          state.todos.map((todo, idx) => <li key={idx}>{todo}</li>)}
       </ul>
     </div>
   )

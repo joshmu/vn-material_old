@@ -25,8 +25,10 @@ const Player = () => {
     onStart,
     onPlay,
     onPause,
-    onDuration
-    // duration
+    onDuration,
+    duration,
+    onProgress,
+    progress
   } = useContext(playerContext)
 
   useEffect(() => {
@@ -35,11 +37,6 @@ const Player = () => {
 
   return (
     <>
-      <div className={controlStyle}>
-        {ready && (
-          <button onClick={togglePlay}>{playing ? 'PAUSE' : 'PLAY'}</button>
-        )}
-      </div>
       <div className={playerStyle}>
         <ReactPlayer
           ref={player}
@@ -51,6 +48,7 @@ const Player = () => {
           onPlay={onPlay}
           onPause={onPause}
           onDuration={onDuration}
+          onProgress={onProgress}
           width="100vw"
           height="100%"
           config={{
@@ -61,6 +59,11 @@ const Player = () => {
           }}
         />
       </div>
+      {/* <div className={controlStyle}>
+        {ready && (
+          <button onClick={togglePlay}>{playing ? 'PAUSE' : 'PLAY'}</button>
+        )}
+      </div> */}
     </>
   )
 }

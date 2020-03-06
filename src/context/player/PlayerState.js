@@ -8,6 +8,7 @@ import {
   ON_PLAY,
   ON_PAUSE,
   ON_DURATION,
+  ON_PROGRESS,
   LOAD_VIDEO
 } from '../Types'
 
@@ -20,7 +21,13 @@ const PlayerState = props => {
     playing: false,
     ready: false,
     duration: 0,
-    url: null
+    url: null,
+    progress: {
+      playedSeconds: 0,
+      played: 0,
+      loadedSeconds: 0,
+      loaded: 0
+    }
   }
 
   // reducer handles state manipulation
@@ -31,7 +38,8 @@ const PlayerState = props => {
     playing: state.playing,
     ready: state.ready,
     duration: state.duration,
-    url: state.url
+    url: state.url,
+    progress: state.progress
   }
 
   // actions
@@ -79,10 +87,18 @@ const PlayerState = props => {
   }
 
   v.onDuration = duration => {
-    console.log('onDuration')
+    console.log('onDuration', duration)
     dispatch({
       type: ON_DURATION,
       payload: duration
+    })
+  }
+
+  v.onProgress = state => {
+    console.log('onProgress', state)
+    dispatch({
+      type: ON_PROGRESS,
+      payload: state
     })
   }
 

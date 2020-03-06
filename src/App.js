@@ -9,7 +9,7 @@ import { PlayerState } from './context/player/PlayerState'
 import Layout from './layout/Layout'
 import Video from './pages/Video'
 import About from './pages/About'
-import Todo from './pages/Todo'
+import Todo from './components/Todo'
 
 import { app, container } from './app.module.scss'
 

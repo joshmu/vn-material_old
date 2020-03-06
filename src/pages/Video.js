@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react'
 
 import Player from '../components/react-player/Player'
+import Todo from '../components/Todo'
 
 import { playerContext } from '../context/player/PlayerState'
 
-import { videoStyle, container, form } from './video.module.scss'
+import { videoStyle, formStyle } from './video.module.scss'
 
 const Video = () => {
   const [url, setUrl] = useState('')
@@ -23,7 +24,7 @@ const Video = () => {
   return (
     <div className={videoStyle}>
       {!ready && (
-        <form className={form} onSubmit={onSubmit}>
+        <form className={formStyle} onSubmit={onSubmit}>
           <label htmlFor="videoUrl">Video URL</label>
           <input
             id="videoUrl"
@@ -38,6 +39,7 @@ const Video = () => {
       )}
 
       <Player />
+      {ready && <Todo />}
     </div>
   )
 }

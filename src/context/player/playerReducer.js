@@ -5,6 +5,7 @@ import {
   ON_PLAY,
   ON_PAUSE,
   ON_DURATION,
+  ON_PROGRESS,
   LOAD_VIDEO
 } from '../Types'
 
@@ -36,6 +37,11 @@ export default (state, action) => {
       return {
         ...state,
         duration: action.payload
+      }
+    case ON_PROGRESS:
+      return {
+        ...state,
+        progress: action.payload
       }
     case LOAD_VIDEO:
       return {

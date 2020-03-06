@@ -1,4 +1,4 @@
-.header {
+.headerStyle {
   display: flex;
   align-items: center;
   padding: 0.5rem;
@@ -7,7 +7,11 @@
   h1 {
     padding: 0.5rem;
     flex: 1;
-    font-weight: 300;
+    font-weight: lighter;
+    font-size: 2.1rem;
+    a {
+      color: lightslategrey;
+    }
   }
 
   ul {

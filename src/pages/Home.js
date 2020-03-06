@@ -1,34 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import Player from '../components/react-player/Player'
+
+import { playerContext } from '../context/player/PlayerState'
 
 import { home, container, form } from './home.module.scss'
 
 const Home = () => {
-  const [vid, setVid] = useState('')
+  const [url, setUrl] = useState('')
+
+  const { loadVideo, ready } = useContext(playerContext)
 
   const onChange = e => {
-    setVid(e.target.value)
+    setUrl(e.target.value)
+  }
+
+  const onSubmit = e => {
+    e.preventDefault()
+    loadVideo(url)
   }
 
   return (
     <div className={home}>
       <div className={container}>
-        <form className={form}>
-          <label htmlFor="videoUrl"></label>
-          <input
-            name="videoUrl"
-            type="text"
-            value={vid}
-            onChange={onChange}
-            placeholder="Video Url..."
-          />
-          {/* <button type="submit">
-            Go
-          </button> */}
-        </form>
+        {!ready && (
+          <form className={form} onSubmit={onSubmit}>
+            <label htmlFor="videoUrl" />
+            <input
+              name="videoUrl"
+              type="text"
+              value={url}
+              onChange={onChange}
+              placeholder="Video Url..."
+            />
+            <button type="submit">Go</button>
+          </form>
+        )}
 
-        <Player url={vid} />
+        <Player />
       </div>
     </div>
   )

@@ -1,0 +1,7 @@
+export const TOGGLE_PLAY = 'TOGGLE_PLAY'
+export const ON_READY = 'ON_READY'
+export const ON_START = 'ON_START'
+export const ON_PLAY = 'ON_PLAY'
+export const ON_PAUSE = 'ON_PAUSE'
+export const ON_DURATION = 'ON_DURATION'
+export const LOAD_VIDEO = 'LOAD_VIDEO'

@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useContext, useRef } from 'react'
 
 import ReactPlayer from 'react-player'
+
+import { playerContext } from '../../context/player/PlayerState'
 
 // TEST URL:
 // https://www.youtube.com/watch?v=hE2Ira-Cwxo
@@ -11,36 +13,25 @@ import {
   reactPlayerStyle
 } from './player.module.scss'
 
-const Player = ({ url }) => {
+const Player = () => {
   const player = useRef(null)
-  const [playing, setPlaying] = useState(false)
-  const [ready, setReady] = useState(false)
-  const [duration, setDuration] = useState(0)
+
+  const {
+    url,
+    playing,
+    togglePlay,
+    onReady,
+    ready,
+    onStart,
+    onPlay,
+    onPause,
+    onDuration,
+    duration
+  } = useContext(playerContext)
 
   useEffect(() => {
-    console.log('playing', playing)
-  }, [playing])
-
-  const onReady = () => {
-    console.log('onReady')
-    setReady(true)
-  }
-
-  const handlePlay = () => {
-    console.log('onPlay')
-    setPlaying(true)
-  }
-
-  const togglePlay = () => {
-    setPlaying(!playing)
-  }
-
-  const handlePause = () => {
-    console.log('onPause')
-    // setPlaying(false)
-  }
-
-  const handleDuration = duration => setDuration(duration)
+    console.log('url changed!', url)
+  }, [url])
 
   return (
     <>
@@ -55,12 +46,12 @@ const Player = ({ url }) => {
           className={reactPlayerStyle}
           url={url}
           onReady={onReady}
-          onStart={() => console.log('onStart')}
+          onStart={onStart}
           playing={playing}
-          onPlay={handlePlay}
-          onPause={handlePause}
-          onDuration={handleDuration}
-          width="100%"
+          onPlay={onPlay}
+          onPause={onPause}
+          onDuration={onDuration}
+          width="100vw"
           height="100%"
           config={{
             youtube: {

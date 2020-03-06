@@ -1,23 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-import { header, initial } from './header.module.scss'
+import { header, initial, active } from './header.module.scss'
 
 const Header = () => {
   return (
     <nav className={header}>
       <h1>
-        <Link to="/">
+        <NavLink exact to="/">
           <span className={initial}>V</span>ideo
           <span className={initial}>N</span>ote
-        </Link>
+        </NavLink>
       </h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink activeClassName={active} exact to="/">
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <NavLink activeClassName={active} exact to="/about">
+            About
+          </NavLink>
         </li>
       </ul>
     </nav>

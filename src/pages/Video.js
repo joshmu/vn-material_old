@@ -22,24 +22,22 @@ const Video = () => {
 
   return (
     <div className={videoStyle}>
-      <div className={container}>
-        {!ready && (
-          <form className={form} onSubmit={onSubmit}>
-            <label htmlFor="videoUrl">Video URL</label>
-            <input
-              id="videoUrl"
-              name="videoUrl"
-              type="text"
-              value={url}
-              onChange={onChange}
-              placeholder="Video Url..."
-            />
-            <button type="submit">Go</button>
-          </form>
-        )}
+      {!ready && (
+        <form className={form} onSubmit={onSubmit}>
+          <label htmlFor="videoUrl">Video URL</label>
+          <input
+            id="videoUrl"
+            name="videoUrl"
+            type="text"
+            value={url}
+            onChange={onChange}
+            placeholder="Video Url..."
+          />
+          <button type="submit">Go</button>
+        </form>
+      )}
 
-        <Player />
-      </div>
+      <Player />
     </div>
   )
 }

@@ -25,8 +25,8 @@ const Player = () => {
     onStart,
     onPlay,
     onPause,
-    onDuration,
-    duration
+    onDuration
+    // duration
   } = useContext(playerContext)
 
   useEffect(() => {

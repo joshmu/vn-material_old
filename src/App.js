@@ -6,6 +6,7 @@ import Footer from './layout/Footer'
 
 import { PlayerState } from './context/player/PlayerState'
 
+import Layout from './layout/Layout'
 import Video from './pages/Video'
 import About from './pages/About'
 import Todo from './pages/Todo'
@@ -19,11 +20,14 @@ function App() {
         <Router>
           <Header />
           <div className={container}>
-            <Switch>
-              <Route exact path="/" component={Video} />
-              <Route exact path="/todo" component={Todo} />
-              <Route exact path="/about" component={About} />
-            </Switch>
+            <Layout>
+              <Switch>
+                <Route exact path="/video" component={Video} />
+                <Route exact path="/todo" component={Todo} />
+                <Route exact path="/about" component={About} />
+                <Route component={Video} />
+              </Switch>
+            </Layout>
           </div>
           <Footer />
         </Router>

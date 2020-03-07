@@ -23,7 +23,8 @@ export default (state, action) => {
       }
     case ON_START:
       return {
-        ...state
+        ...state,
+        playing: true
       }
     case ON_PLAY:
       return {

@@ -17,7 +17,7 @@ const Todo = () => {
     todos: []
   })
 
-  const { progress, ready } = useContext(playerContext)
+  const { progress, ready, togglePlay } = useContext(playerContext)
 
   useEffect(() => {
     if (state.current.msg.length > 0 && state.current.seconds === null) {
@@ -42,14 +42,20 @@ const Todo = () => {
   }
 
   const onChange = e => {
-    console.log('onChange')
     setState({
       ...state,
       current: {
         ...state.current,
-        msg: e.target.value
+        // don't apply space when toggling play/pause on empty input
+        msg: e.target.value === ' ' ? '' : e.target.value
       }
     })
+  }
+
+  const onKeyPress = e => {
+    if (e.key === ' ' && state.current.msg === '') {
+      togglePlay()
+    }
   }
 
   return (
@@ -63,6 +69,7 @@ const Todo = () => {
           placeholder="Add note..."
           value={state.current.msg}
           onChange={onChange}
+          onKeyPress={onKeyPress}
         />
         {ready && (
           <Duration

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 
 import TodoItem from './TodoItem'
+import Duration from './Duration'
 
 import { playerContext } from '../context/player/PlayerState'
 
@@ -64,14 +65,22 @@ const Todo = () => {
           onChange={onChange}
         />
         {ready && (
-          <div className={style.timer}>
+          <Duration
+            className={style.timer}
+            seconds={
+              state.current.seconds === null
+                ? Math.round(progress.playedSeconds)
+                : state.current.seconds
+            }
+          />
+        )}
+        {/* <div className={style.timer}>
             <span>
               {state.current.seconds === null
                 ? Math.round(progress.playedSeconds)
                 : state.current.seconds}
             </span>
-          </div>
-        )}
+          </div> */}
         <button>Add</button>
       </form>
       <ul className={style.ul}>

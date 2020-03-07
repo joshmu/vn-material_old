@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import Duration from './Duration'
 
 import style from '../styles.module.scss'
 
@@ -20,7 +21,8 @@ const TodoItem = ({ todo: { msg, seconds, checked } }) => {
         )}
       </span>
       <p>{msg}</p>
-      <span className={style.timestamp}>{seconds}s</span>
+      <Duration className={style.timestamp} seconds={seconds} />
+      {/* <span className={style.timestamp}>{seconds}s</span> */}
     </li>
   )
 }

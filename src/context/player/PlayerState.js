@@ -95,7 +95,7 @@ const PlayerState = props => {
   }
 
   v.onProgress = state => {
-    console.log('onProgress', state)
+    // console.log('onProgress', state)
     dispatch({
       type: ON_PROGRESS,
       payload: state

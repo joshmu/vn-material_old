@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 
+import TodoItem from './TodoItem'
+
 import { playerContext } from '../context/player/PlayerState'
 
 import style from '../styles.module.scss'
@@ -7,8 +9,9 @@ import style from '../styles.module.scss'
 const Todo = () => {
   const [state, setState] = useState({
     current: {
-      todo: '',
-      seconds: null
+      msg: '',
+      seconds: null,
+      checked: false
     },
     todos: []
   })
@@ -16,52 +19,58 @@ const Todo = () => {
   const { progress } = useContext(playerContext)
 
   useEffect(() => {
-    if (state.current.todo.length > 0 && state.current.seconds === null) {
+    if (state.current.msg.length > 0 && state.current.seconds === null) {
       console.log('setting timestamp')
       setState({
         ...state,
         current: {
-          todo: state.current.todo,
-          seconds: +progress.playedSeconds.toFixed(2)
+          ...state.current,
+          seconds: Math.round(progress.playedSeconds)
         }
       })
     }
-  }, [state.current.todo])
+  }, [state.current.msg])
 
   const onSubmit = e => {
     e.preventDefault()
-    const newTodo = `${state.current.todo} (${state.current.seconds}s)`
+    // add todo and reset current
     setState({
-      current: { todo: '', seconds: null },
-      todos: [...state.todos, newTodo]
+      current: { msg: '', seconds: null, checked: false },
+      todos: [...state.todos, state.current]
     })
   }
 
   const onChange = e => {
+    console.log('onChange')
     setState({
-      current: { todo: e.target.value, seconds: state.current.seconds },
-      todos: [...state.todos]
+      ...state,
+      current: {
+        ...state.current,
+        msg: e.target.value
+      }
     })
   }
 
   return (
     <div className={style.todo}>
       <form className={style.form} onSubmit={onSubmit}>
+        {/* <div className={style.timer}>
+          <span>{Math.round(progress.playedSeconds)}</span>
+        </div> */}
         <label htmlFor="addTodo">Add Todo</label>
-        <p>{progress.playedSeconds.toFixed(2)}</p>
         <input
           id="addTodo"
           name="addTodo"
           type="text"
           placeholder="Add note..."
-          value={state.current.todo}
+          value={state.current.msg}
           onChange={onChange}
         />
         <button>Add</button>
       </form>
-      <ul>
+      <ul className={style.ul}>
         {state.todos.length > 0 &&
-          state.todos.map((todo, idx) => <li key={idx}>{todo}</li>)}
+          state.todos.map((todo, idx) => <TodoItem key={idx} todo={todo} />)}
       </ul>
     </div>
   )

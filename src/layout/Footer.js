@@ -11,8 +11,8 @@ const Footer = () => {
         by{' '}
         <a href="https://jos.com" target="_blank" rel="noopener noreferrer">
           <strong>MU</strong>
-        </a>
-        {' ©'}
+        </a>{' '}
+        <i className="far fa-copyright"></i>
         {new Date().getFullYear()}
       </p>
     </div>

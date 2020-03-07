@@ -16,6 +16,7 @@ const Player = () => {
     url,
     playing,
     togglePlay,
+    nativeControls,
     onReady,
     ready,
     onStart,
@@ -38,6 +39,7 @@ const Player = () => {
           ref={player}
           className={style.reactPlayer}
           url={url}
+          contorls={nativeControls}
           onReady={onReady}
           onStart={onStart}
           playing={playing}

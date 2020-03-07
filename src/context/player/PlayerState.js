@@ -19,6 +19,7 @@ const playerContext = createContext()
 const PlayerState = props => {
   const initialState = {
     playing: false,
+    nativeControls: true,
     ready: false,
     duration: 0,
     url: null,

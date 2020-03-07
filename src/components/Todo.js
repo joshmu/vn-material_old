@@ -88,7 +88,7 @@ const Todo = () => {
                 : state.current.seconds}
             </span>
           </div> */}
-        <button>Add</button>
+        {/* <button>Add</button> */}
       </form>
       <ul className={style.ul}>
         {state.todos.length > 0 &&

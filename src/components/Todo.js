@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 
 import { playerContext } from '../context/player/PlayerState'
 
-import { todoStyle, formStyle } from './todo.module.scss'
+import style from '../styles.module.scss'
 
 const Todo = () => {
   const [state, setState] = useState({
@@ -29,8 +29,8 @@ const Todo = () => {
   }
 
   return (
-    <div className={todoStyle}>
-      <form className={formStyle} onSubmit={onSubmit}>
+    <div className={style.todo}>
+      <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo">Add Todo</label>
         <input
           id="addTodo"

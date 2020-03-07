@@ -7,11 +7,7 @@ import { playerContext } from '../../context/player/PlayerState'
 // TEST URL:
 // https://www.youtube.com/watch?v=hE2Ira-Cwxo
 
-import {
-  controlStyle,
-  playerStyle,
-  reactPlayerStyle
-} from './player.module.scss'
+import style from '../../styles.module.scss'
 
 const Player = () => {
   const player = useRef(null)
@@ -37,10 +33,10 @@ const Player = () => {
 
   return (
     <>
-      <div className={playerStyle}>
+      <div className={style.player}>
         <ReactPlayer
           ref={player}
-          className={reactPlayerStyle}
+          className={style.reactPlayer}
           url={url}
           onReady={onReady}
           onStart={onStart}
@@ -59,7 +55,7 @@ const Player = () => {
           }}
         />
       </div>
-      {/* <div className={controlStyle}>
+      {/* <div className={style.controls}>
         {ready && (
           <button onClick={togglePlay}>{playing ? 'PAUSE' : 'PLAY'}</button>
         )}

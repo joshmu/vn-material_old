@@ -16,7 +16,7 @@ const Todo = () => {
     todos: []
   })
 
-  const { progress } = useContext(playerContext)
+  const { progress, ready } = useContext(playerContext)
 
   useEffect(() => {
     if (state.current.msg.length > 0 && state.current.seconds === null) {
@@ -54,9 +54,6 @@ const Todo = () => {
   return (
     <div className={style.todo}>
       <form className={style.form} onSubmit={onSubmit}>
-        {/* <div className={style.timer}>
-          <span>{Math.round(progress.playedSeconds)}</span>
-        </div> */}
         <label htmlFor="addTodo">Add Todo</label>
         <input
           id="addTodo"
@@ -66,6 +63,15 @@ const Todo = () => {
           value={state.current.msg}
           onChange={onChange}
         />
+        {ready && (
+          <div className={style.timer}>
+            <span>
+              {state.current.seconds === null
+                ? Math.round(progress.playedSeconds)
+                : state.current.seconds}
+            </span>
+          </div>
+        )}
         <button>Add</button>
       </form>
       <ul className={style.ul}>

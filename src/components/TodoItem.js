@@ -20,7 +20,7 @@ const TodoItem = ({ todo: { msg, seconds, checked } }) => {
         )}
       </span>
       <p>{msg}</p>
-      <span className={style.timestamp}>{seconds}</span>
+      <span className={style.timestamp}>{seconds}s</span>
     </li>
   )
 }

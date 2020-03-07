@@ -49,3 +49,10 @@ input:focus,
 :focus {
   outline: none;
 }
+
+input {
+  :focus,
+  :active {
+    background-color: white;
+  }
+}

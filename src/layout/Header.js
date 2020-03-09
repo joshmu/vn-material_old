@@ -1,6 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faListAlt } from '@fortawesome/free-regular-svg-icons'
+
 import style from '../styles.module.scss'
 
 const Header = () => {
@@ -8,7 +11,8 @@ const Header = () => {
     <nav className={style.header}>
       <h1>
         <NavLink exact to="/">
-          <span className={style.logo}>V</span>ideo
+          <FontAwesomeIcon icon={faListAlt} />
+          <span className={style.logo}> V</span>ideo
           <span className={style.logo}>N</span>ote
         </NavLink>
       </h1>

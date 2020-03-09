@@ -7,16 +7,3 @@ Ongoing project which started about 7 years ago when I was first lost in the lan
 ### `npm build`
 
 And away we go! 🚀
-
-# TODO
-
-- [ ] click timestamp on todo input to disable timestamp add
-- [ ] seek whilst there is a note changes timestamp
-- [ ] selected note jumps to timestamp
-- [ ] selected note click timestamp and seek to change the time
-- [ ] full screen video with note input
-- [ ] sidebar opens with all notes
-- [ ] can have notes without timestamps
-- [ ] as video plays relevant todo shows/highlighted whilst timestamp is met
-- [ ] save todos to csv so it can be re-used for other purposes
-- [ ] load back in csv? with video url too?

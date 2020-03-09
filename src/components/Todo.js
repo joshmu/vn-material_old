@@ -1,59 +1,51 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
+
+// todo: click timestamp on todo input to disable timestamp add
+// todo: seek whilst there is a note changes timestamp
+// todo: selected note jumps to timestamp
+// todo: selected note click timestamp and seek to change the time
+// todo: full screen video with note input
+// todo: sidebar opens with all notes
+// todo: can have notes without timestamps
+// todo: as video plays relevant todo shows/highlighted whilst timestamp is met
+// todo: save todos to csv so it can be re-used for other purposes
+// todo: load back in csv? with video url too?
 
 import TodoItem from './TodoItem'
 import Duration from './Duration'
 
 import { playerContext } from '../context/player/PlayerState'
+import { todoContext } from '../context/todo/TodoState'
 
 import style from '../styles.module.scss'
 
 const Todo = () => {
-  const [state, setState] = useState({
-    current: {
-      msg: '',
-      seconds: null,
-      checked: false
-    },
-    todos: []
-  })
-
+  const { newTodo, todos, addTodo, updateNewTodo } = useContext(todoContext)
   const { progress, ready, togglePlay } = useContext(playerContext)
 
   useEffect(() => {
-    if (state.current.msg.length > 0 && state.current.seconds === null) {
+    if (newTodo.msg.length > 0 && newTodo.seconds === null) {
       console.log('setting timestamp')
-      setState({
-        ...state,
-        current: {
-          ...state.current,
-          seconds: Math.round(progress.playedSeconds)
-        }
+      updateNewTodo({
+        seconds: progress.playedSeconds
       })
     }
-  }, [state.current.msg])
+  }, [newTodo.msg])
 
   const onSubmit = e => {
     e.preventDefault()
-    // add todo and reset current
-    setState({
-      current: { msg: '', seconds: null, checked: false },
-      todos: [...state.todos, state.current]
-    })
+    addTodo()
   }
 
   const onChange = e => {
-    setState({
-      ...state,
-      current: {
-        ...state.current,
-        // don't apply space when toggling play/pause on empty input
-        msg: e.target.value === ' ' ? '' : e.target.value
-      }
+    updateNewTodo({
+      // don't apply space when toggling play/pause on empty input
+      msg: e.target.value === ' ' ? '' : e.target.value
     })
   }
 
   const onKeyPress = e => {
-    if (e.key === ' ' && state.current.msg === '') {
+    if (e.key === ' ' && newTodo.msg === '') {
       togglePlay()
     }
   }
@@ -67,7 +59,7 @@ const Todo = () => {
           name="addTodo"
           type="text"
           placeholder="Add note..."
-          value={state.current.msg}
+          value={newTodo.msg}
           onChange={onChange}
           onKeyPress={onKeyPress}
         />
@@ -75,24 +67,24 @@ const Todo = () => {
           <Duration
             className={style.timer}
             seconds={
-              state.current.seconds === null
-                ? Math.round(progress.playedSeconds)
-                : state.current.seconds
+              newTodo.seconds === null
+                ? progress.playedSeconds
+                : newTodo.seconds
             }
           />
         )}
         {/* <div className={style.timer}>
             <span>
-              {state.current.seconds === null
+              {state.newTodo.seconds === null
                 ? Math.round(progress.playedSeconds)
-                : state.current.seconds}
+                : state.newTodo.seconds}
             </span>
           </div> */}
         {/* <button>Add</button> */}
       </form>
       <ul className={style.ul}>
-        {state.todos.length > 0 &&
-          state.todos.map((todo, idx) => <TodoItem key={idx} todo={todo} />)}
+        {todos.length > 0 &&
+          todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
       </ul>
     </div>
   )

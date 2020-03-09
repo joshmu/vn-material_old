@@ -12,10 +12,17 @@ export default (state, action) => {
         },
         todos: [...state.todos, state.newTodo]
       }
+    case UPDATE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.id ? { ...todo, ...action.payload } : todo
+        )
+      }
     case UPDATE_NEW_TODO:
       return {
         ...state,
-        newTodo: { ...state.newTodo, ...action.payload}
+        newTodo: { ...state.newTodo, ...action.payload }
       }
     default:
       return state

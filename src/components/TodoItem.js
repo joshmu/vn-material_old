@@ -1,26 +1,39 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Duration from './Duration'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons'
+
+import { todoContext } from '../context/todo/TodoState'
+
 import style from '../styles.module.scss'
 
-const TodoItem = ({ todo: { msg, seconds, checked } }) => {
-  const [done, setDone] = useState(checked)
+const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
+  const { updateTodo } = useContext(todoContext)
 
-  const onClick = msg => {
+  const onEditMsg = msg => {
     console.log('clicked', msg)
   }
 
+  const onCheck = () => {
+    console.log('check')
+    updateTodo({
+      id,
+      checked: !checked
+    })
+  }
+
   return (
-    <li className={style.todoItem} onClick={() => onClick(msg)}>
-      <span className={style.checked}>
+    <li className={style.todoItem}>
+      <span className={style.checked} onClick={onCheck}>
         {checked ? (
-          <i className="far fa-check-circle"></i>
+          <FontAwesomeIcon icon={faCheckCircle} />
         ) : (
-          <i className="far fa-circle"></i>
+          <FontAwesomeIcon icon={faCircle} />
         )}
       </span>
-      <p>{msg}</p>
+      <p onClick={onEditMsg}>{msg}</p>
       <Duration className={style.timestamp} seconds={seconds} />
       {/* <span className={style.timestamp}>{seconds}s</span> */}
     </li>

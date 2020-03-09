@@ -38,10 +38,22 @@ const TodoState = props => {
     })
   }
 
-  v.updateNewTodo = newTodo => {
+  v.updateTodo = data => {
+    console.log('updateTodo', data)
+    if (typeof data.id === 'string' && data.id.length > 0) {
+      dispatch({
+        type: UPDATE_TODO,
+        payload: data
+      })
+    } else {
+      console.error('ID required to update todo')
+    }
+  }
+
+  v.updateNewTodo = data => {
     dispatch({
       type: UPDATE_NEW_TODO,
-      payload: newTodo
+      payload: data
     })
   }
 

@@ -2,6 +2,9 @@ import React from 'react'
 
 import style from '../styles.module.scss'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopyright } from '@fortawesome/free-regular-svg-icons'
+
 const Footer = () => {
   return (
     <div className={style.footer}>
@@ -12,8 +15,7 @@ const Footer = () => {
         <a href="https://jos.com" target="_blank" rel="noopener noreferrer">
           <strong>MU</strong>
         </a>{' '}
-        <i className="far fa-copyright"></i>
-        {new Date().getFullYear()}
+        <FontAwesomeIcon icon={faCopyright} /> {new Date().getFullYear()}
       </p>
     </div>
   )

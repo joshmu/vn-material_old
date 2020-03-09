@@ -2,6 +2,9 @@ import React from 'react'
 
 import styles from '../styles.module.scss'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+
 const About = () => {
   return (
     <div className={styles.about}>
@@ -14,7 +17,7 @@ const About = () => {
         </li>
         <li>
           <a href="https://instgram.com/joshmu">
-            <i className="fab fa-instagram"></i> joshmu
+            <FontAwesomeIcon icon={faInstagram} /> joshmu
           </a>
         </li>
       </ul>

@@ -1,10 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   background: rgb(245, 244, 255);
   background: linear-gradient(
@@ -13,6 +16,10 @@ body {
     rgba(221, 221, 245, 1) 37%,
     rgba(215, 248, 255, 1) 100%
   );
+}
+
+ul {
+  padding: 0;
 }
 
 li {
@@ -31,6 +38,11 @@ a {
 // VN TODO ITEM
 .todoItem {
   cursor: pointer;
+
+  p {
+    margin: 0;
+  }
+
   &.checked {
     .check {
       color: green;
@@ -49,10 +61,11 @@ button {
   color: white;
   letter-spacing: 2px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 label {
-  display: none;
+  // display: none;
 }
 
 // remove the blue focus outline
@@ -68,4 +81,26 @@ input {
   :active {
     background-color: white;
   }
+}
+
+.formSource {
+  margin: 0 3rem;
+
+  .active {
+    opacity: 0.9;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .inactive {
+    // background-color: lightgrey;
+    opacity: 0.4;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.sourceControls {
+  margin-right: 2rem;
 }

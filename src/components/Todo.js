@@ -69,13 +69,14 @@ const Todo = () => {
   return (
     <div className={style.todo}>
       <form className={style.form} onSubmit={onSubmit}>
-        <label htmlFor="addTodo">Add Todo</label>
+        <label htmlFor="addTodo"></label>
         <input
           id="addTodo"
           name="addTodo"
           type="text"
           placeholder="Add note..."
           value={newTodo.msg}
+          autocomplete="off"
           onChange={onChange}
           onKeyDown={onKeyDown}
         />

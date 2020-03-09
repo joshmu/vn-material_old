@@ -2,12 +2,13 @@ import React, { useState, useContext } from 'react'
 
 import Player from '../components/react-player/Player'
 import Todo from '../components/Todo'
+import VideoFileSource from '../components/VideoFileSource'
 
 import { playerContext } from '../context/player/PlayerState'
 
 import style from '../styles.module.scss'
 
-const Video = () => {
+const VideoPage = () => {
   const [urlSource, setUrlSource] = useState(true)
   const [url, setUrl] = useState('')
 
@@ -34,10 +35,26 @@ const Video = () => {
   return (
     <div className={style.video}>
       {!ready && (
-        <form className={style.form} onSubmit={onSubmit}>
+        <form className={`${style.form} formSource`} onSubmit={onSubmit}>
+          <div className="sourceControls">
+            <button
+              className={urlSource ? 'active' : 'inactive'}
+              onClick={() => setUrlSource(true)}
+            >
+              URL
+            </button>
+
+            <button
+              className={urlSource ? 'inactive' : 'active'}
+              onClick={() => setUrlSource(false)}
+            >
+              File
+            </button>
+          </div>
+
           {urlSource ? (
             <>
-              <label htmlFor="videoUrl">Video URL</label>
+              <label htmlFor="videoUrl"></label>
               <input
                 id="videoUrl"
                 name="videoUrl"
@@ -48,17 +65,8 @@ const Video = () => {
               />
             </>
           ) : (
-            <>
-              <label htmlFor="videoFile">Video File</label>
-              <input
-                id="videoFile"
-                name="videoFile"
-                type="file"
-                onChange={onFileChange}
-              />
-            </>
+            <VideoFileSource onFileChange={onFileChange} />
           )}
-          <button onClick={toggleSource}>File</button>
         </form>
       )}
 
@@ -68,4 +76,4 @@ const Video = () => {
   )
 }
 
-export default Video
+export default VideoPage

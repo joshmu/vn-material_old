@@ -8,8 +8,8 @@ import { PlayerState } from './context/player/PlayerState'
 import { TodoState } from './context/todo/TodoState'
 
 import Layout from './layout/Layout'
-import Video from './pages/Video'
-import About from './pages/About'
+import VideoPage from './pages/VideoPage'
+import AboutPage from './pages/AboutPage'
 import Todo from './components/Todo'
 
 import styles from './styles.module.scss'
@@ -23,10 +23,10 @@ function App() {
             <Header />
             <Layout>
               <Switch>
-                <Route exact path="/video" component={Video} />
+                <Route exact path="/video" component={VideoPage} />
                 <Route exact path="/todo" component={Todo} />
-                <Route exact path="/about" component={About} />
-                <Route component={Video} />
+                <Route exact path="/about" component={AboutPage} />
+                <Route component={VideoPage} />
               </Switch>
             </Layout>
             <Footer />

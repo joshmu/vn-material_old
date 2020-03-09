@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from 'react'
 
 // todo: click timestamp on todo input to disable timestamp add
 // todo: seek whilst there is a note changes timestamp
-// todo: selected note jumps to timestamp
 // todo: selected note click timestamp and seek to change the time
 // todo: full screen video with note input
 // todo: sidebar opens with all notes
@@ -10,6 +9,8 @@ import React, { useEffect, useContext } from 'react'
 // todo: as video plays relevant todo shows/highlighted whilst timestamp is met
 // todo: save todos to csv so it can be re-used for other purposes
 // todo: load back in csv? with video url too?
+// todo: context auto saved to localStorage?
+// todo: width of video to view port OR 90% of height?
 
 import TodoItem from './TodoItem'
 import Duration from './Duration'
@@ -76,7 +77,7 @@ const Todo = () => {
           type="text"
           placeholder="Add note..."
           value={newTodo.msg}
-          autocomplete="off"
+          autoComplete="off"
           onChange={onChange}
           onKeyDown={onKeyDown}
         />

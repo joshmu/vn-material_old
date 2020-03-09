@@ -12,6 +12,9 @@ import VideoPage from './pages/VideoPage'
 import AboutPage from './pages/AboutPage'
 import Todo from './components/Todo'
 
+// import 'normalize.css'
+
+import './index.scss'
 import styles from './styles.module.scss'
 
 function App() {

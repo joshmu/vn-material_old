@@ -2,6 +2,7 @@ import React, { createContext, useReducer } from 'react'
 import playerReducer from './playerReducer'
 
 import {
+  SET_PLAYER,
   TOGGLE_PLAY,
   ON_READY,
   ON_START,
@@ -19,7 +20,8 @@ const playerContext = createContext()
 const PlayerState = props => {
   const initialState = {
     playing: false,
-    nativeControls: true,
+    player: null,
+    nativeControls: false,
     ready: false,
     duration: 0,
     url: null,
@@ -36,6 +38,7 @@ const PlayerState = props => {
 
   // hold all esential data in 'v' which is given to value prop (this avoids the mistake of forgetting to add actions as props)
   const v = {
+    player: state.player,
     playing: state.playing,
     ready: state.ready,
     duration: state.duration,
@@ -101,6 +104,18 @@ const PlayerState = props => {
       type: ON_PROGRESS,
       payload: state
     })
+  }
+
+  v.setPlayer = player => {
+    console.log('setPlayer', player)
+    dispatch({
+      type: SET_PLAYER,
+      payload: player
+    })
+  }
+
+  v.seekTo = seconds => {
+    state.player.seekTo(seconds)
   }
 
   // return provider

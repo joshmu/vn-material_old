@@ -1,4 +1,5 @@
 import {
+  SET_PLAYER,
   TOGGLE_PLAY,
   ON_READY,
   ON_START,
@@ -11,6 +12,11 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
+    case SET_PLAYER:
+      return {
+        ...state,
+        player: action.payload
+      }
     case TOGGLE_PLAY:
       return {
         ...state,

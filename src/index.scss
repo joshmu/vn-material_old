@@ -28,6 +28,19 @@ a {
   }
 }
 
+// VN TODO ITEM
+.todoItem {
+  cursor: pointer;
+  &.checked {
+    .check {
+      color: green;
+    }
+    .msg {
+      color: lightgrey;
+    }
+  }
+}
+
 button {
   height: inherit;
   border: none;

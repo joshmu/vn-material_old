@@ -1,4 +1,5 @@
 // PLAYER
+export const SET_PLAYER = 'SET_PLAYER'
 export const TOGGLE_PLAY = 'TOGGLE_PLAY'
 export const ON_READY = 'ON_READY'
 export const ON_START = 'ON_START'

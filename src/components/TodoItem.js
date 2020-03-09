@@ -6,14 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons'
 
 import { todoContext } from '../context/todo/TodoState'
+import { playerContext } from '../context/player/PlayerState'
 
 import style from '../styles.module.scss'
 
 const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
   const { updateTodo } = useContext(todoContext)
+  const { seekTo } = useContext(playerContext)
 
-  const onEditMsg = msg => {
-    console.log('clicked', msg)
+  const onTodoClick = () => {
+    console.log('onTodoClick')
+    seekTo(seconds)
   }
 
   const onCheck = () => {
@@ -25,16 +28,18 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
   }
 
   return (
-    <li className={style.todoItem}>
-      <span className={style.checked} onClick={onCheck}>
+    <li className={`${style.todoItem} todoItem ${checked && 'checked'}`}>
+      <span className={`${style.checked} check`} onClick={onCheck}>
         {checked ? (
           <FontAwesomeIcon icon={faCheckCircle} />
         ) : (
           <FontAwesomeIcon icon={faCircle} />
         )}
       </span>
-      <p onClick={onEditMsg}>{msg}</p>
-      <Duration className={style.timestamp} seconds={seconds} />
+      <p className="msg" onClick={onTodoClick}>
+        {msg}
+      </p>
+      <Duration className={`${style.timestamp} duration`} seconds={seconds} />
       {/* <span className={style.timestamp}>{seconds}s</span> */}
     </li>
   )

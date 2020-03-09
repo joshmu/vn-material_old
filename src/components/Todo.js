@@ -44,9 +44,25 @@ const Todo = () => {
     })
   }
 
-  const onKeyPress = e => {
-    if (e.key === ' ' && newTodo.msg === '') {
-      togglePlay()
+  const onKeyDown = e => {
+    // keyboard shortcuts on empty todo
+    if (newTodo.msg === '') {
+      console.log('key', e.key)
+      if (e.key === ' ') {
+        togglePlay()
+      }
+      if (e.key === 'ArrowLeft') {
+        // todo: seek vid
+      }
+      if (e.key === 'ArrowRight') {
+        // todo: seek vid
+      }
+      if (e.key === 'ArrowUp') {
+        // todo: volume?
+      }
+      if (e.key === 'ArrowDown') {
+        // todo: volume?
+      }
     }
   }
 
@@ -61,7 +77,7 @@ const Todo = () => {
           placeholder="Add note..."
           value={newTodo.msg}
           onChange={onChange}
-          onKeyPress={onKeyPress}
+          onKeyDown={onKeyDown}
         />
         {ready && (
           <Duration

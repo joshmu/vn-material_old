@@ -25,12 +25,14 @@ const Player = () => {
     onDuration,
     duration,
     onProgress,
+    setPlayer,
     progress
   } = useContext(playerContext)
 
   useEffect(() => {
     console.log('url changed!', url)
-  }, [url])
+    setPlayer(player.current)
+  }, [url, player])
 
   return (
     <>
@@ -39,7 +41,7 @@ const Player = () => {
           ref={player}
           className={style.reactPlayer}
           url={url}
-          contorls={nativeControls}
+          controls={nativeControls}
           onReady={onReady}
           onStart={onStart}
           playing={playing}

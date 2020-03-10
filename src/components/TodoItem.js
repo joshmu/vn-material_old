@@ -10,12 +10,13 @@ import { playerContext } from '../context/player/PlayerState'
 
 import style from '../styles.module.scss'
 
-const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
+const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
   const { updateTodo } = useContext(todoContext)
   const { seekTo } = useContext(playerContext)
 
   const onTodoClick = () => {
     console.log('onTodoClick')
+    focusInput()
     seekTo(seconds)
   }
 
@@ -46,7 +47,8 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
 }
 
 TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired
+  todo: PropTypes.object.isRequired,
+  focusInput: PropTypes.func.isRequired
 }
 
 export default TodoItem

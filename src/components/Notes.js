@@ -29,7 +29,7 @@ const Todo = () => {
   useEffect(() => {
     if (ready) {
       console.log('focus input', inputRef)
-      inputRef.current.focus()
+      focusInput()
     }
   }, [ready])
 
@@ -41,6 +41,11 @@ const Todo = () => {
       })
     }
   }, [newTodo.msg])
+
+  const focusInput = () => {
+    console.log('focus Input')
+    inputRef.current.focus()
+  }
 
   const onSubmit = e => {
     e.preventDefault()
@@ -120,7 +125,9 @@ const Todo = () => {
       </form>
       <ul className={style.ul}>
         {todos.length > 0 &&
-          todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+          todos.map(todo => (
+            <TodoItem key={todo.id} todo={todo} focusInput={focusInput} />
+          ))}
       </ul>
     </div>
   )

@@ -115,7 +115,11 @@ const PlayerState = props => {
   }
 
   v.seekTo = seconds => {
-    state.player.seekTo(seconds)
+    if (state.ready) {
+      state.player.seekTo(seconds)
+    } else {
+      console.log('no video loaded')
+    }
   }
 
   // return provider

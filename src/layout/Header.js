@@ -20,8 +20,8 @@ const Header = () => {
         <NavLink activeClassName={style.active} exact to="/">
           <li>Video</li>
         </NavLink>
-        <NavLink activeClassName={style.active} exact to="/todo">
-          <li>Todo</li>
+        <NavLink activeClassName={style.active} exact to="/notes">
+          <li>Notes</li>
         </NavLink>
         <NavLink activeClassName={style.active} exact to="/about">
           <li>About</li>

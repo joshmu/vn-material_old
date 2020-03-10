@@ -10,7 +10,7 @@ import { TodoState } from './context/todo/TodoState'
 import Layout from './layout/Layout'
 import VideoPage from './pages/VideoPage'
 import AboutPage from './pages/AboutPage'
-import Todo from './components/Todo'
+import Notes from './components/Notes'
 
 // import 'normalize.css'
 
@@ -26,8 +26,8 @@ function App() {
             <Header />
             <Layout>
               <Switch>
-                <Route exact path="/video" component={VideoPage} />
-                <Route exact path="/todo" component={Todo} />
+                <Route exact path="/" component={VideoPage} />
+                <Route exact path="/notes" component={Notes} />
                 <Route exact path="/about" component={AboutPage} />
                 <Route component={VideoPage} />
               </Switch>

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 
 import Player from '../components/react-player/Player'
-import Todo from '../components/Todo'
+import Notes from '../components/Notes'
 import VideoFileSource from '../components/VideoFileSource'
 
 import { playerContext } from '../context/player/PlayerState'
@@ -13,8 +13,6 @@ const VideoPage = () => {
   const [url, setUrl] = useState('')
 
   const { loadVideo, ready } = useContext(playerContext)
-
-  const toggleSource = () => setUrlSource(!urlSource)
 
   const onFileChange = e => {
     const file = e.target.files[0]
@@ -71,7 +69,7 @@ const VideoPage = () => {
       )}
 
       <Player />
-      {ready && <Todo />}
+      {ready && <Notes />}
     </div>
   )
 }

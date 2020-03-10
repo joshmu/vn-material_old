@@ -14,6 +14,7 @@ import React, { useEffect, useContext } from 'react'
 
 import TodoItem from './TodoItem'
 import Duration from './Duration'
+import Timeline from './Timeline'
 
 import { playerContext } from '../context/player/PlayerState'
 import { todoContext } from '../context/todo/TodoState'
@@ -69,6 +70,7 @@ const Todo = () => {
 
   return (
     <div className={style.todo}>
+      <Timeline />
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
         <input

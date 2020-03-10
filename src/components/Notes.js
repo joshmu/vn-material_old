@@ -23,7 +23,7 @@ import style from '../styles.module.scss'
 
 const Todo = () => {
   const { newTodo, todos, addTodo, updateNewTodo } = useContext(todoContext)
-  const { progress, ready, togglePlay } = useContext(playerContext)
+  const { progress, ready, togglePlay, seekTo } = useContext(playerContext)
 
   useEffect(() => {
     if (newTodo.msg.length > 0 && newTodo.seconds === null) {
@@ -54,10 +54,17 @@ const Todo = () => {
         togglePlay()
       }
       if (e.key === 'ArrowLeft') {
-        // todo: seek vid
+        const destination = progress.playedSeconds - 10
+        if (destination > 0) {
+          seekTo(destination)
+        } else {
+          // start of clip
+          seekTo(0)
+        }
       }
       if (e.key === 'ArrowRight') {
-        // todo: seek vid
+        const destination = progress.playedSeconds + 10
+        seekTo(destination)
       }
       if (e.key === 'ArrowUp') {
         // todo: volume?

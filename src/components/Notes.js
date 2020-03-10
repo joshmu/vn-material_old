@@ -84,7 +84,7 @@ const Todo = () => {
   }
 
   return (
-    <div className={style.todo}>
+    <div className={style.notesWrapper}>
       <Timeline />
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>

@@ -31,7 +31,7 @@ const VideoPage = () => {
   }
 
   return (
-    <div className={style.video}>
+    <div className={style.videoWrapper}>
       {!ready && (
         <form className={`${style.form} formSource`} onSubmit={onSubmit}>
           <div className="sourceControls">

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useRef } from 'react'
 
 // todo: click timestamp on todo input to disable timestamp add
 // todo: seek whilst there is a note changes timestamp
@@ -22,8 +22,16 @@ import { todoContext } from '../context/todo/TodoState'
 import style from '../styles.module.scss'
 
 const Todo = () => {
+  const inputRef = useRef()
   const { newTodo, todos, addTodo, updateNewTodo } = useContext(todoContext)
   const { progress, ready, togglePlay, seekTo } = useContext(playerContext)
+
+  useEffect(() => {
+    if (ready) {
+      console.log('focus input', inputRef)
+      inputRef.current.focus()
+    }
+  }, [ready])
 
   useEffect(() => {
     if (newTodo.msg.length > 0 && newTodo.seconds === null) {
@@ -81,6 +89,7 @@ const Todo = () => {
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
         <input
+          ref={inputRef}
           id="addTodo"
           name="addTodo"
           type="text"

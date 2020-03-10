@@ -1,4 +1,4 @@
-import { ADD_TODO, UPDATE_TODO, REMOVE_TODO, UPDATE_NEW_TODO } from '../Types'
+import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO } from '../Types'
 
 export default (state, action) => {
   switch (action.type) {

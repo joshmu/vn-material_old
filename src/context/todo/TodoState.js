@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import todoReducer from './todoReducer'
 
-import { ADD_TODO, UPDATE_TODO, REMOVE_TODO, UPDATE_NEW_TODO } from '../Types'
+import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO } from '../Types'
 
 // create context
 const todoContext = createContext()

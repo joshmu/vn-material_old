@@ -15,18 +15,18 @@ const Player = () => {
   const {
     url,
     playing,
-    togglePlay,
+    // togglePlay,
     nativeControls,
     onReady,
-    ready,
+    // ready,
     onStart,
     onPlay,
     onPause,
     onDuration,
-    duration,
+    // duration,
     onProgress,
-    setPlayer,
-    progress
+    setPlayer
+    // progress
   } = useContext(playerContext)
 
   useEffect(() => {

@@ -17,21 +17,15 @@ const Header = () => {
         </NavLink>
       </h1>
       <ul>
-        <li>
-          <NavLink activeClassName={style.active} exact to="/">
-            Video
-          </NavLink>
-        </li>
-        <li>
-          <NavLink activeClassName={style.active} exact to="/todo">
-            Todo
-          </NavLink>
-        </li>
-        <li>
-          <NavLink activeClassName={style.active} exact to="/about">
-            About
-          </NavLink>
-        </li>
+        <NavLink activeClassName={style.active} exact to="/">
+          <li>Video</li>
+        </NavLink>
+        <NavLink activeClassName={style.active} exact to="/todo">
+          <li>Todo</li>
+        </NavLink>
+        <NavLink activeClassName={style.active} exact to="/about">
+          <li>About</li>
+        </NavLink>
       </ul>
     </nav>
   )

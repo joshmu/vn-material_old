@@ -160,15 +160,18 @@
     li {
       padding: 0.5rem;
       letter-spacing: 0.1px;
+      font-size: 0.8rem;
       border-bottom: 1px solid transparent;
+      transition: 0.25s ease;
+      border-radius: 2px;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
 
       a {
         padding-bottom: 0.5rem;
-
-        &:hover {
-          // color: #3e3e3e;
-          border-bottom: 1px solid #112121;
-        }
       }
     }
   }
@@ -180,8 +183,8 @@
 }
 
 .active {
-  border-bottom: 1px dashed #112121;
   color: #112121;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .layout {

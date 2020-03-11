@@ -11,7 +11,7 @@ import Footer from './layout/Footer'
 import { PlayerState } from './context/player/PlayerState'
 import { TodoState } from './context/todo/TodoState'
 
-import Layout from './layout/Layout'
+import Main from './layout/Main'
 import VideoPage from './pages/VideoPage'
 import AboutPage from './pages/AboutPage'
 import Notes from './components/Notes'
@@ -30,14 +30,14 @@ function App() {
             <TodoState>
               <Router>
                 <Header />
-                <Layout>
+                <Main>
                   <Switch>
                     <Route exact path="/" component={VideoPage} />
                     <Route exact path="/notes" component={Notes} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route component={VideoPage} />
                   </Switch>
-                </Layout>
+                </Main>
                 <Footer />
               </Router>
             </TodoState>

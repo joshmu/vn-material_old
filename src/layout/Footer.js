@@ -25,7 +25,7 @@ const Footer = () => {
         by{' '}
         <Link
           color="inherit"
-          href="https://josh.com"
+          href="https://joshmu.com"
           target="_blank"
           rel="noopener noreferrer"
         >

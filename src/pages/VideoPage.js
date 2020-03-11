@@ -1,76 +1,26 @@
 import React, { useState, useContext } from 'react'
+import { Grid } from '@material-ui/core'
 
 import Player from '../components/react-player/Player'
 import Notes from '../components/Notes'
-import VideoFileSource from '../components/VideoFileSource'
+import SourceLoader from '../components/SourceLoader'
 
 import { playerContext } from '../context/player/PlayerState'
 
-import style from '../styles.module.scss'
-
 const VideoPage = () => {
-  const [urlSource, setUrlSource] = useState(true)
-  const [url, setUrl] = useState('')
-
-  const { loadVideo, ready } = useContext(playerContext)
-
-  const onFileChange = e => {
-    const file = e.target.files[0]
-    const url = URL.createObjectURL(file)
-    setUrl(url)
-    loadVideo(url)
-  }
-
-  const onChange = e => {
-    setUrl(e.target.value)
-  }
-
-  const onSubmit = e => {
-    e.preventDefault()
-    loadVideo(url)
-  }
+  const { ready } = useContext(playerContext)
 
   return (
-    <div className={style.videoWrapper}>
-      {!ready && (
-        <form className={`${style.form} formSource`} onSubmit={onSubmit}>
-          <div className="sourceControls">
-            <button
-              className={urlSource ? 'active' : 'inactive'}
-              onClick={() => setUrlSource(true)}
-            >
-              URL
-            </button>
-
-            <button
-              className={urlSource ? 'inactive' : 'active'}
-              onClick={() => setUrlSource(false)}
-            >
-              File
-            </button>
-          </div>
-
-          {urlSource ? (
-            <>
-              <label htmlFor="videoUrl"></label>
-              <input
-                id="videoUrl"
-                name="videoUrl"
-                type="text"
-                value={url}
-                onChange={onChange}
-                placeholder="Video Url..."
-              />
-            </>
-          ) : (
-            <VideoFileSource onFileChange={onFileChange} />
-          )}
-        </form>
+    <Grid item>
+      {ready ? (
+        <>
+          <Player />
+          <Notes />
+        </>
+      ) : (
+        <SourceLoader />
       )}
-
-      <Player />
-      {ready && <Notes />}
-    </div>
+    </Grid>
   )
 }
 

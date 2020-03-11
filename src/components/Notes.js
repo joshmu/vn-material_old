@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useRef } from 'react'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 // todo: click timestamp on todo input to disable timestamp add
 // todo: seek whilst there is a note changes timestamp
@@ -90,8 +90,11 @@ const Todo = () => {
   }
 
   return (
-    <Grid item style={{ backgroundColor: 'salmon' }}>
-      <Typography>Notes</Typography>
+    <Grid
+      item
+      style={{ backgroundColor: 'salmon', alignSelf: 'flex-start' }}
+      xs={10}
+    >
       <Timeline />
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>

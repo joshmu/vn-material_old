@@ -4,7 +4,7 @@ import { Grid, makeStyles } from '@material-ui/core'
 
 const styles = {
   root: {
-    // backgroundColor: 'lightgrey',
+    backgroundColor: 'lightgrey',
     flex: 1
   }
 }
@@ -13,7 +13,13 @@ const useStyles = makeStyles(styles)
 const Main = props => {
   const classes = useStyles()
   return (
-    <Grid container className={classes.root}>
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      className={classes.root}
+    >
       {props.children}
     </Grid>
   )

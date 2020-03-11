@@ -89,6 +89,10 @@ input {
 
 .formSource {
   margin: 0 3rem;
+}
+
+.sourceControls {
+  margin-right: 2rem;
 
   .active {
     opacity: 0.9;
@@ -103,8 +107,4 @@ input {
       opacity: 0.5;
     }
   }
-}
-
-.sourceControls {
-  margin-right: 2rem;
 }

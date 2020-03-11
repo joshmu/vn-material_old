@@ -2,13 +2,12 @@ import React from 'react'
 
 import { Grid, makeStyles } from '@material-ui/core'
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: 'lightgrey',
+    // backgroundColor: 'lightgrey',
     flex: 1
   }
-}
-const useStyles = makeStyles(styles)
+}))
 
 const Main = props => {
   const classes = useStyles()

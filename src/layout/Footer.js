@@ -15,7 +15,7 @@ const Footer = () => {
   const classes = useStyles()
   return (
     <div>
-      <Typography display="block" variant="p" align="center">
+      <Typography display="block" variant="body2" align="center">
         Developed with{' '}
         <FavoriteBorder
           className={classes.icon}

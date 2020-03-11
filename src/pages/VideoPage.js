@@ -8,17 +8,18 @@ import SourceLoader from '../components/SourceLoader'
 import { playerContext } from '../context/player/PlayerState'
 
 const VideoPage = () => {
+  const [init, setInit] = useState(false)
   const { ready } = useContext(playerContext)
 
   return (
-    <Grid item>
-      {ready ? (
+    <Grid item xs={12}>
+      {init ? (
         <>
           <Player />
-          <Notes />
+          {ready && <Notes />}
         </>
       ) : (
-        <SourceLoader />
+        <SourceLoader setInit={setInit} />
       )}
     </Grid>
   )

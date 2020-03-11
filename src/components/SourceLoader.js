@@ -5,17 +5,18 @@ import { playerContext } from '../context/player/PlayerState'
 
 import style from '../styles.module.scss'
 
-const LoadSource = () => {
+const LoadSource = ({ setInit }) => {
   const [urlSource, setUrlSource] = useState(true)
   const [url, setUrl] = useState('')
 
-  const { loadVideo, ready } = useContext(playerContext)
+  const { loadVideo } = useContext(playerContext)
 
   const onFileChange = e => {
     const file = e.target.files[0]
     const url = URL.createObjectURL(file)
     setUrl(url)
     loadVideo(url)
+    setInit(true)
   }
 
   const onChange = e => {
@@ -25,6 +26,7 @@ const LoadSource = () => {
   const onSubmit = e => {
     e.preventDefault()
     loadVideo(url)
+    setInit(true)
   }
   return (
     <div>
@@ -44,7 +46,6 @@ const LoadSource = () => {
             File
           </button>
         </div>
-
         {urlSource ? (
           <>
             <label htmlFor="videoUrl"></label>

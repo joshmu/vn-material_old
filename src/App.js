@@ -17,8 +17,7 @@ import AboutPage from './pages/AboutPage'
 import Notes from './components/Notes'
 
 // import 'normalize.css'
-
-import './index.scss'
+// import './index.scss'
 
 const appContainerStyle = {
   height: '100vh',

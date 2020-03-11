@@ -210,33 +210,3 @@
   text-align: center;
   // padding-top: 10%;
 }
-
-.videoFileSource {
-  // background-color: peachpuff;
-  flex: 1;
-  display: flex;
-  opacity: 0.9;
-  // justify-content: center;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  label {
-    border: 1px solid #ccc;
-    background: #278ea5;
-    font-size: 0.8rem;
-    border: none;
-
-    padding: 1rem;
-    font-weight: lighter;
-    color: white;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  input[type='file'] {
-    display: none;
-  }
-}

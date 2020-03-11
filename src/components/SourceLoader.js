@@ -1,14 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { Grid } from '@material-ui/core'
-import VideoFileSource from './VideoFileSource'
-import SourceControls from './SourceControls'
+import { Grid, Input } from '@material-ui/core'
+import LocalVideoLoad from './LocalVideoLoad'
 
 import { playerContext } from '../context/player/PlayerState'
 
-import style from '../styles.module.scss'
-
 const LoadSource = ({ setInit }) => {
-  const [urlSource, setUrlSource] = useState(true)
   const [url, setUrl] = useState('')
 
   const { loadVideo } = useContext(playerContext)
@@ -30,27 +26,32 @@ const LoadSource = ({ setInit }) => {
     loadVideo(url)
     setInit(true)
   }
+
   return (
     <div>
-      <Grid container spacing={0} justify="center">
-        <Grid item xs={4}>
-          <SourceControls urlSource={urlSource} setUrlSource={setUrlSource} />
+      <Grid
+        container
+        spacing={3}
+        justify="center"
+        align="center"
+        direction="row"
+      >
+        <Grid item xs={3}>
+          <LocalVideoLoad onFileChange={onFileChange} />
         </Grid>
-        <Grid item xs={8}>
-          <form className={`${style.form} formSource`} onSubmit={onSubmit}>
-            {urlSource ? (
-              <input
-                id="videoUrl"
-                name="videoUrl"
-                type="text"
-                value={url}
-                onChange={onChange}
-                placeholder="Video Url..."
-                onSubmit={onSubmit}
-              />
-            ) : (
-              <VideoFileSource onFileChange={onFileChange} />
-            )}
+        <Grid item xs={6}>
+          <form onSubmit={onSubmit}>
+            <Input
+              autoFocus
+              id="videoUrl"
+              name="videoUrl"
+              type="text"
+              value={url}
+              onChange={onChange}
+              placeholder="Or Paste Video Url & Smack Enter..."
+              onSubmit={onSubmit}
+              fullWidth
+            />
           </form>
         </Grid>
       </Grid>

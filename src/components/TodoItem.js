@@ -2,8 +2,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Duration from './Duration'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons'
+import { RadioButtonUnchecked, DoneOutline } from '@material-ui/icons'
 
 import { todoContext } from '../context/todo/TodoState'
 import { playerContext } from '../context/player/PlayerState'
@@ -31,11 +30,7 @@ const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
   return (
     <li className={`${style.todoItem} todoItem ${checked && 'checked'}`}>
       <span className={`${style.checked} check`} onClick={onCheck}>
-        {checked ? (
-          <FontAwesomeIcon icon={faCheckCircle} />
-        ) : (
-          <FontAwesomeIcon icon={faCircle} />
-        )}
+        {checked ? <DoneOutline /> : <RadioButtonUnchecked />}
       </span>
       <p className="msg" onClick={onTodoClick}>
         {msg}

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useRef } from 'react'
+import { Grid, Typography } from '@material-ui/core'
 
 // todo: click timestamp on todo input to disable timestamp add
 // todo: seek whilst there is a note changes timestamp
@@ -89,7 +90,8 @@ const Todo = () => {
   }
 
   return (
-    <div className={style.notesWrapper}>
+    <Grid item style={{ backgroundColor: 'salmon' }}>
+      <Typography>Notes</Typography>
       <Timeline />
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
@@ -129,7 +131,7 @@ const Todo = () => {
             <TodoItem key={todo.id} todo={todo} focusInput={focusInput} />
           ))}
       </ul>
-    </div>
+    </Grid>
   )
 }
 

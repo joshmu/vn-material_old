@@ -19,13 +19,18 @@ import Notes from './components/Notes'
 // import 'normalize.css'
 
 import './index.scss'
-import styles from './styles.module.scss'
+
+const appContainerStyle = {
+  height: '100vh',
+  display: 'flex',
+  flexDirection: 'column'
+}
 
 function App() {
   return (
     <CssBaseline>
       <ThemeProvider theme={theme}>
-        <div className={styles.app}>
+        <div style={appContainerStyle}>
           <PlayerState>
             <TodoState>
               <Router>

@@ -40,7 +40,12 @@ const Header = () => {
           <Typography variant="h6" className={classes.title}>
             VideoNote
           </Typography>
-          <Button color="inherit" component={Link} to="video">
+          <Button
+            className={classes.button}
+            color="inherit"
+            component={Link}
+            to="video"
+          >
             Video
           </Button>
           <Button color="inherit" component={Link} to="notes">

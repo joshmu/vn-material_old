@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider } from '@material-ui/core'
 import { CssBaseline } from '@material-ui/core'
-import theme from './config/theme'
+import theme from './themes/theme'
 
 import Header from './layout/Header'
 import Footer from './layout/Footer'

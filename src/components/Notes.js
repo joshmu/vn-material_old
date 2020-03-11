@@ -90,54 +90,55 @@ const Todo = () => {
   }
 
   return (
-    <Grid
-      item
-      style={{
-        backgroundColor: 'none',
-        alignSelf: 'flex-start',
-        marginTop: '3rem'
-      }}
-      xs={10}
-    >
-      <Timeline />
-      <form className={style.form} onSubmit={onSubmit}>
-        <label htmlFor="addTodo"></label>
-        <input
-          ref={inputRef}
-          id="addTodo"
-          name="addTodo"
-          type="text"
-          placeholder="Add note..."
-          value={newTodo.msg}
-          autoComplete="off"
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-        />
-        {ready && (
-          <Duration
-            className={style.timer}
-            seconds={
-              newTodo.seconds === null
-                ? progress.playedSeconds
-                : newTodo.seconds
-            }
+    <Grid container justify="center">
+      <Grid
+        item
+        style={{
+          // backgroundColor: 'salmon',
+          marginTop: '2rem'
+        }}
+        xs={10}
+      >
+        <Timeline />
+        <form className={style.form} onSubmit={onSubmit}>
+          <label htmlFor="addTodo"></label>
+          <input
+            ref={inputRef}
+            id="addTodo"
+            name="addTodo"
+            type="text"
+            placeholder="Add note..."
+            value={newTodo.msg}
+            autoComplete="off"
+            onChange={onChange}
+            onKeyDown={onKeyDown}
           />
-        )}
-        {/* <div className={style.timer}>
+          {ready && (
+            <Duration
+              className={style.timer}
+              seconds={
+                newTodo.seconds === null
+                  ? progress.playedSeconds
+                  : newTodo.seconds
+              }
+            />
+          )}
+          {/* <div className={style.timer}>
             <span>
               {state.newTodo.seconds === null
                 ? Math.round(progress.playedSeconds)
                 : state.newTodo.seconds}
             </span>
           </div> */}
-        {/* <button>Add</button> */}
-      </form>
-      <ul className={style.ul}>
-        {todos.length > 0 &&
-          todos.map(todo => (
-            <TodoItem key={todo.id} todo={todo} focusInput={focusInput} />
-          ))}
-      </ul>
+          {/* <button>Add</button> */}
+        </form>
+        <ul className={style.ul}>
+          {todos.length > 0 &&
+            todos.map(todo => (
+              <TodoItem key={todo.id} todo={todo} focusInput={focusInput} />
+            ))}
+        </ul>
+      </Grid>
     </Grid>
   )
 }

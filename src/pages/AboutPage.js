@@ -16,9 +16,20 @@ const About = () => {
         </Typography>
         <MoodIcon style={{ marginBottom: '2rem', marginTop: '0.5rem' }} />
         <Typography>
-          <Link to="https://joshmu.com">www.joshmu.com</Link>
+          <Link
+            to="https://joshmu.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            color="primary"
+          >
+            www.joshmu.com
+          </Link>
         </Typography>
-        <Link to="https://instagram.com/joshmu">
+        <Link
+          to="https://instagram.com/joshmu"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <InstagramIcon style={{ marginTop: '0.5rem' }} />
         </Link>
       </Grid>

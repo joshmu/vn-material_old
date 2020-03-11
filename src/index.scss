@@ -1,15 +1,3 @@
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-h1 {
-  margin: 0;
-}
-
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -24,19 +12,6 @@ body {
 
 ul {
   padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: #3e3e3e;
-
-  &:hover {
-    color: #112121;
-  }
 }
 
 // VN TODO ITEM
@@ -57,21 +32,6 @@ a {
   }
 }
 
-button {
-  height: inherit;
-  border: none;
-  padding: 1rem;
-  background-color: lightslategrey;
-  color: white;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-label {
-  // display: none;
-}
-
 // remove the blue focus outline
 a:focus,
 button:focus,
@@ -84,27 +44,5 @@ input {
   :focus,
   :active {
     background-color: white;
-  }
-}
-
-.formSource {
-  margin: 0 3rem;
-}
-
-.sourceControls {
-  margin-right: 2rem;
-
-  .active {
-    opacity: 0.9;
-    &:hover {
-      opacity: 1;
-    }
-  }
-  .inactive {
-    // background-color: lightgrey;
-    opacity: 0.4;
-    &:hover {
-      opacity: 0.5;
-    }
   }
 }

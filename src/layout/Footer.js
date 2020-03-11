@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography, Link } from '@material-ui/core'
 import { FavoriteBorder, Copyright } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
@@ -23,9 +23,14 @@ const Footer = () => {
           fontSize="small"
         />{' '}
         by{' '}
-        <a href="https://josh.com" target="_blank" rel="noopener noreferrer">
+        <Link
+          color="inherit"
+          href="https://josh.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <strong>MU</strong>
-        </a>{' '}
+        </Link>{' '}
         <Copyright className={classes.icon} fontSize="small" />
         {new Date().getFullYear()}
       </Typography>

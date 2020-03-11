@@ -48,7 +48,7 @@ const LoadSource = ({ setInit }) => {
               type="text"
               value={url}
               onChange={onChange}
-              placeholder="Or Paste Video Url & Smack Enter..."
+              placeholder="Or Paste Url & Smack Enter..."
               onSubmit={onSubmit}
               fullWidth
             />

@@ -9,11 +9,11 @@ import {
   IconButton,
   Button
 } from '@material-ui/core'
-import { Menu as MenuIcon } from '@material-ui/icons'
+import { Theaters as TheatersIcon } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
-    marginRight: theme.spacing(2)
+    // marginRight: theme.spacing(2)
   },
   title: {
     flexGrow: 1
@@ -31,7 +31,7 @@ const Header = () => {
           color="inherit"
           aria-label="menu"
         >
-          <MenuIcon />
+          <TheatersIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
           VideoNote

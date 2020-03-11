@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Grid } from '@material-ui/core'
 
 import Player from '../components/react-player/Player'
@@ -8,8 +8,13 @@ import SourceLoader from '../components/SourceLoader'
 import { playerContext } from '../context/player/PlayerState'
 
 const VideoPage = () => {
+  const { ready, url } = useContext(playerContext)
   const [init, setInit] = useState(false)
-  const { ready } = useContext(playerContext)
+
+  // remember the previous url when switching route
+  useEffect(() => {
+    if (url) setInit(true)
+  }, [url])
 
   return (
     <Grid item xs={12}>

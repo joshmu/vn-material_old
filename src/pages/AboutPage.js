@@ -1,27 +1,28 @@
 import React from 'react'
-
-import styles from '../styles.module.scss'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { Grid, Typography, Link } from '@material-ui/core'
+import {
+  Instagram as InstagramIcon,
+  Mood as MoodIcon
+} from '@material-ui/icons'
 
 const About = () => {
   return (
-    <div className={styles.about}>
-      <h2>Thank you.</h2>
-      <p>We hope you are enjoying VideoNote!</p>
-      <p>Feel free to say hello and let us know what you think. =)</p>
-      <ul>
-        <li>
-          <a href="https://joshmu.com">www.joshmu.com</a>
-        </li>
-        <li>
-          <a href="https://instgram.com/joshmu">
-            <FontAwesomeIcon icon={faInstagram} /> joshmu
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Grid container justify="center">
+      <Grid item style={{ textAlign: 'center' }}>
+        <Typography variant="h2">Thank you.</Typography>
+        <Typography>We hope you are enjoying VideoNote!</Typography>
+        <Typography>
+          Feel free to say hello and let us know what you think.
+        </Typography>
+        <MoodIcon style={{ marginBottom: '2rem', marginTop: '0.5rem' }} />
+        <Typography>
+          <Link to="https://joshmu.com">www.joshmu.com</Link>
+        </Typography>
+        <Link to="https://instagram.com/joshmu">
+          <InstagramIcon style={{ marginTop: '0.5rem' }} />
+        </Link>
+      </Grid>
+    </Grid>
   )
 }
 

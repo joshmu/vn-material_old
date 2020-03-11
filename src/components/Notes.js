@@ -41,6 +41,7 @@ const Todo = () => {
         seconds: progress.playedSeconds
       })
     }
+    // eslint-disable-next-line
   }, [newTodo.msg])
 
   const focusInput = () => {

@@ -32,6 +32,7 @@ const Player = () => {
   useEffect(() => {
     console.log('url changed!', url)
     setPlayer(player.current)
+    // eslint-disable-next-line
   }, [url, player])
 
   return (

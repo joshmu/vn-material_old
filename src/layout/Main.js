@@ -4,7 +4,7 @@ import { Grid, makeStyles } from '@material-ui/core'
 
 const styles = {
   root: {
-    backgroundColor: 'lightgrey',
+    // backgroundColor: 'lightgrey',
     flex: 1
   }
 }

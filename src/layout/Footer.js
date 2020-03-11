@@ -1,25 +1,34 @@
 import React from 'react'
+import { makeStyles, Typography } from '@material-ui/core'
+import { FavoriteBorder, Copyright } from '@material-ui/icons'
 
-import style from '../styles.module.scss'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopyright, faHeart } from '@fortawesome/free-regular-svg-icons'
+const useStyles = makeStyles(theme => ({
+  icon: {
+    position: 'relative',
+    top: '0.05rem',
+    width: '0.8rem',
+    height: '0.8rem'
+  }
+}))
 
 const Footer = () => {
+  const classes = useStyles()
   return (
-    <div className={style.footer}>
-      <p>
+    <div>
+      <Typography display="block" variant="p" align="center">
         Developed with{' '}
-        <FontAwesomeIcon
-          icon={faHeart}
+        <FavoriteBorder
+          className={classes.icon}
           style={{ color: 'rgb(250, 100, 100)' }}
+          fontSize="small"
         />{' '}
         by{' '}
-        <a href="https://jos.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://josh.com" target="_blank" rel="noopener noreferrer">
           <strong>MU</strong>
         </a>{' '}
-        <FontAwesomeIcon icon={faCopyright} /> {new Date().getFullYear()}
-      </p>
+        <Copyright className={classes.icon} fontSize="small" />
+        {new Date().getFullYear()}
+      </Typography>
     </div>
   )
 }

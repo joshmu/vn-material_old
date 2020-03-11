@@ -19,7 +19,7 @@ const About = () => {
   const classes = useStyles()
 
   return (
-    <Grid container justify="center">
+    <Grid container justify="center" style={{ marginTop: '2rem' }}>
       <Grid item style={{ textAlign: 'center' }}>
         <Paper elevation={3} className={classes.paper}>
           <Typography variant="h2">Thank you.</Typography>

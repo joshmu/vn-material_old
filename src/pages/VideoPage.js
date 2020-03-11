@@ -17,15 +17,17 @@ const VideoPage = () => {
   }, [url])
 
   return (
-    <Grid item xs={12}>
-      {init ? (
-        <>
-          <Player />
-          {ready && <Notes />}
-        </>
-      ) : (
-        <SourceLoader setInit={setInit} />
-      )}
+    <Grid container>
+      <Grid item xs={12}>
+        {init ? (
+          <>
+            <Player />
+            {ready && <Notes />}
+          </>
+        ) : (
+          <SourceLoader setInit={setInit} />
+        )}
+      </Grid>
     </Grid>
   )
 }

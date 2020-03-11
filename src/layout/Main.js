@@ -16,7 +16,7 @@ const Main = props => {
       container
       direction="row"
       justify="center"
-      alignItems="center"
+      alignItems="flex-start"
       className={classes.root}
     >
       {props.children}

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import VideoFileSource from '../components/VideoFileSource'
+import VideoFileSource from './VideoFileSource'
+import SourceControls from './SourceControls'
 
 import { playerContext } from '../context/player/PlayerState'
 
@@ -30,34 +31,17 @@ const LoadSource = ({ setInit }) => {
   }
   return (
     <div>
+      <SourceControls urlSource={urlSource} setUrlSource={setUrlSource} />
       <form className={`${style.form} formSource`} onSubmit={onSubmit}>
-        <div className="sourceControls">
-          <button
-            className={urlSource ? 'active' : 'inactive'}
-            onClick={() => setUrlSource(true)}
-          >
-            URL
-          </button>
-
-          <button
-            className={urlSource ? 'inactive' : 'active'}
-            onClick={() => setUrlSource(false)}
-          >
-            File
-          </button>
-        </div>
         {urlSource ? (
-          <>
-            <label htmlFor="videoUrl"></label>
-            <input
-              id="videoUrl"
-              name="videoUrl"
-              type="text"
-              value={url}
-              onChange={onChange}
-              placeholder="Video Url..."
-            />
-          </>
+          <input
+            id="videoUrl"
+            name="videoUrl"
+            type="text"
+            value={url}
+            onChange={onChange}
+            placeholder="Video Url..."
+          />
         ) : (
           <VideoFileSource onFileChange={onFileChange} />
         )}

@@ -92,7 +92,11 @@ const Todo = () => {
   return (
     <Grid
       item
-      style={{ backgroundColor: 'salmon', alignSelf: 'flex-start' }}
+      style={{
+        backgroundColor: 'none',
+        alignSelf: 'flex-start',
+        marginTop: '3rem'
+      }}
       xs={10}
     >
       <Timeline />

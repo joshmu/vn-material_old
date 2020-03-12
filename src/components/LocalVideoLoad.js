@@ -5,7 +5,7 @@ import { CloudUpload } from '@material-ui/icons'
 const useStyles = makeStyles(theme => ({
   root: {
     // backgroundColor: 'salmon',
-    textAlign: 'right'
+    // textAlign: 'right'
   },
   input: {
     display: 'none'

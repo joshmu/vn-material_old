@@ -35,12 +35,14 @@ const LoadSource = ({ setInit }) => {
         justify="center"
         align="center"
         direction="row"
+        // style={{ backgroundColor: 'grey' }}
       >
-        <Grid item xs={3}>
+        <Grid item xs={10} md={3}>
           <LocalVideoLoad onFileChange={onFileChange} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={10} md={6}>
           <form onSubmit={onSubmit}>
+            <label htmlFor="videoUrl"></label>
             <Input
               autoFocus
               id="videoUrl"

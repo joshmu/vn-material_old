@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 import todoReducer from './todoReducer'
 
-import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO } from '../Types'
+import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO, TOGGLE_OPEN } from '../Types'
+import { BottomNavigationAction } from '@material-ui/core'
 
 // create context
 const todoContext = createContext()
@@ -16,6 +17,7 @@ const TodoState = props => {
       seconds: null,
       checked: false
     },
+    open: true,
     todos: []
   }
 
@@ -25,10 +27,18 @@ const TodoState = props => {
   // hold all essential data in 'v' which is given to value prop (this avoids the mistake of forgetting to add actions as props)
   const v = {
     newTodo: state.newTodo,
+    open: state.open,
     todos: state.todos
   }
 
   // actions
+  v.toggleOpen = open => {
+    dispatch({
+      type: TOGGLE_OPEN,
+      payload: open
+    })
+  }
+
   v.addTodo = () => {
     // provide unique id
     state.newTodo.id = uuidv4()

@@ -7,11 +7,13 @@ import theme from './themes/theme'
 
 import Header from './layout/Header'
 import Footer from './layout/Footer'
+import NotesSidebar from './components/NotesSidebar'
 
 import { PlayerState } from './context/player/PlayerState'
 import { TodoState } from './context/todo/TodoState'
 
 import Main from './layout/Main'
+import AppPage from './pages/AppPage'
 import VideoPage from './pages/VideoPage'
 import AboutPage from './pages/AboutPage'
 import Notes from './components/Notes'
@@ -35,12 +37,15 @@ function App() {
                 <Header />
                 <Main>
                   <Switch>
-                    <Route exact path="/" component={VideoPage} />
+                    <Route exact path="/" component={AppPage} />
+                    <Route exact path="/video" component={VideoPage} />
                     <Route exact path="/notes" component={Notes} />
                     <Route exact path="/about" component={AboutPage} />
-                    <Route component={VideoPage} />
+                    <Route component={AppPage} />
                   </Switch>
                 </Main>
+
+                <NotesSidebar />
                 <Footer />
               </Router>
             </TodoState>

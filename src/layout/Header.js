@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import {
@@ -11,6 +11,8 @@ import {
 } from '@material-ui/core'
 import { Theaters as TheatersIcon } from '@material-ui/icons'
 
+import { todoContext } from '../context/todo/TodoState'
+
 const useStyles = makeStyles(theme => ({
   menuButton: {
     // marginRight: theme.spacing(2)
@@ -22,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const Header = () => {
   const classes = useStyles()
+  const { toggleOpen, open } = useContext(todoContext)
   return (
     <AppBar position="static">
       <Toolbar>
@@ -40,11 +43,24 @@ const Header = () => {
           className={classes.button}
           color="inherit"
           component={Link}
+          to="vn"
+        >
+          App
+        </Button>{' '}
+        <Button
+          className={classes.button}
+          color="inherit"
+          component={Link}
           to="video"
         >
           Video
         </Button>
-        <Button color="inherit" component={Link} to="notes">
+        <Button
+          color="inherit"
+          onClick={() => {
+            toggleOpen(true)
+          }}
+        >
           Notes
         </Button>
         <Button color="inherit" component={Link} to="about">

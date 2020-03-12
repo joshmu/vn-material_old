@@ -7,6 +7,9 @@ import { playerContext } from '../../context/player/PlayerState'
 // TEST URL:
 // https://www.youtube.com/watch?v=hE2Ira-Cwxo
 
+// TODO: width: calc(100% - drawerWidth) > react player
+// todo: player.wrapper.style.width = 'width'
+// todo: player.wrapper.style.width = window.innerWidth - 360 + 'px'
 import style from '../../styles.module.scss'
 
 const Player = () => {

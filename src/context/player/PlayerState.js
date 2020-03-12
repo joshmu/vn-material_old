@@ -64,6 +64,7 @@ const PlayerState = props => {
 
   v.onReady = () => {
     console.log('onReady')
+    window.player = state.player
     dispatch({
       type: ON_READY
     })

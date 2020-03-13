@@ -7,7 +7,6 @@ import {
   makeStyles,
   Dialog,
   DialogContent,
-  DialogTitle,
   DialogActions
 } from '@material-ui/core'
 import {
@@ -35,9 +34,6 @@ const About = ({ open, setOpen }) => {
   return (
     <div>
       <Dialog onClose={toggle} aria-labelledby="about-information" open={open}>
-        {/* <DialogTitle id="customized-dialog-title" onClose={toggle}>
-          Thank You.
-        </DialogTitle> */}
         <DialogContent dividers>
           <Grid container justify="center" style={{ marginTop: '2rem' }}>
             <Grid item style={{ textAlign: 'center' }}>

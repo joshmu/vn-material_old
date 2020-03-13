@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {
   makeStyles,
   useTheme,
@@ -23,7 +23,14 @@ const NotesSidebar = () => {
   const classes = useStyles()
   const theme = useTheme()
 
-  const { toggleOpen, open } = useContext(todoContext)
+  const { toggleOpen, open, actionInputRef } = useContext(todoContext)
+
+  useEffect(() => {
+    if (open) {
+      actionInputRef.current.focus()
+    }
+    // eslint-disable-next-line
+  }, [open])
 
   return (
     <Drawer

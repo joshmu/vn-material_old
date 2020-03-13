@@ -10,20 +10,19 @@ import {
   ListItemIcon,
   IconButton
 } from '@material-ui/core'
-import { RadioButtonUnchecked, DoneOutline } from '@material-ui/icons'
 
 import { todoContext } from '../../context/todo/TodoState'
 import { playerContext } from '../../context/player/PlayerState'
 
 import style from './todoItem.module.scss'
 
-const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
-  const { updateTodo } = useContext(todoContext)
+const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
+  const { updateTodo, actionInputRef } = useContext(todoContext)
   const { seekTo } = useContext(playerContext)
 
   const onTodoClick = () => {
     console.log('onTodoClick')
-    focusInput()
+    actionInputRef.current.focus()
     seekTo(seconds)
   }
 
@@ -73,8 +72,8 @@ const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
 }
 
 TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired,
-  focusInput: PropTypes.func.isRequired
+  todo: PropTypes.object.isRequired
+  // focusInput: PropTypes.func.isRequired
 }
 
 export default TodoItem

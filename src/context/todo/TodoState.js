@@ -3,7 +3,13 @@ import { v4 as uuidv4 } from 'uuid'
 
 import todoReducer from './todoReducer'
 
-import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO, TOGGLE_OPEN } from '../Types'
+import {
+  ADD_TODO,
+  UPDATE_TODO,
+  UPDATE_NEW_TODO,
+  TOGGLE_OPEN,
+  SET_ACTION_INPUT_REF
+} from '../Types'
 
 // create context
 const todoContext = createContext()
@@ -18,6 +24,7 @@ const TodoState = props => {
     },
     open: false,
     drawerWidth: '360px',
+    actionInputRef: null,
     todos: []
   }
 
@@ -29,10 +36,18 @@ const TodoState = props => {
     newTodo: state.newTodo,
     open: state.open,
     drawerWidth: state.drawerWidth,
+    actionInputRef: state.actionInputRef,
     todos: state.todos
   }
 
   // actions
+  v.setActionInputRef = ref => {
+    dispatch({
+      type: SET_ACTION_INPUT_REF,
+      payload: ref
+    })
+  }
+
   v.toggleOpen = open => {
     dispatch({
       type: TOGGLE_OPEN,

@@ -1,4 +1,10 @@
-import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO, TOGGLE_OPEN } from '../Types'
+import {
+  ADD_TODO,
+  UPDATE_TODO,
+  UPDATE_NEW_TODO,
+  TOGGLE_OPEN,
+  SET_ACTION_INPUT_REF
+} from '../Types'
 
 export default (state, action) => {
   switch (action.type) {
@@ -28,6 +34,11 @@ export default (state, action) => {
       return {
         ...state,
         open: typeof action.payload === 'boolean' ? action.payload : !state.open
+      }
+    case SET_ACTION_INPUT_REF:
+      return {
+        ...state,
+        actionInputRef: action.payload
       }
     default:
       return state

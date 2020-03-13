@@ -32,11 +32,10 @@ const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
       <span className={`${style.checked} check`} onClick={onCheck}>
         {checked ? <DoneOutline /> : <RadioButtonUnchecked />}
       </span>
-      <p className="msg" onClick={onTodoClick}>
+      <p className={style.msg} onClick={onTodoClick}>
         {msg}
       </p>
-      <Duration className={`${style.timestamp} duration`} seconds={seconds} />
-      {/* <span className={style.timestamp}>{seconds}s</span> */}
+      <Duration className={style.timestamp} seconds={seconds} />
     </li>
   )
 }

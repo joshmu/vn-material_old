@@ -7,7 +7,7 @@ import theme from './themes/theme'
 
 import Header from './layout/Header'
 import Footer from './layout/Footer'
-import Drawer from './components/Drawer'
+import Drawer from './components/Drawer/Drawer'
 import Backdrop from './components/Backdrop/Backdrop'
 
 import { PlayerState } from './context/player/PlayerState'

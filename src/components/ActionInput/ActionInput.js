@@ -74,7 +74,7 @@ const ActionInput = () => {
 
   return (
     <div>
-      <Timeline />
+      {ready && <Timeline />}
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
         <input

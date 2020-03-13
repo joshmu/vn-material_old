@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider, CssBaseline } from '@material-ui/core'
 import theme from './themes/theme'
@@ -13,9 +12,7 @@ import { PlayerState } from './context/player/PlayerState'
 import { TodoState } from './context/todo/TodoState'
 
 import Main from './layout/Main'
-import AppPage from './pages/AppPage'
-import AboutPage from './pages/AboutPage'
-import Notes from './components/Notes/Notes'
+import AppContent from './components/AppContent/AppContent'
 import About from './components/About/About'
 
 import './index.scss'
@@ -35,22 +32,14 @@ function App() {
         <div style={appContainerStyle}>
           <PlayerState>
             <TodoState>
-              <Router>
-                <Backdrop />
-                <Header setOpenAbout={setOpenAbout} />
-                <About open={openAbout} setOpen={setOpenAbout} />
-                <Main>
-                  <Switch>
-                    <Route exact path="/" component={AppPage} />
-                    <Route exact path="/notes" component={Notes} />
-                    <Route exact path="/about" component={AboutPage} />
-                    <Route component={AppPage} />
-                  </Switch>
-                </Main>
-
-                <Drawer />
-                <Footer />
-              </Router>
+              <Backdrop />
+              <Header setOpenAbout={setOpenAbout} />
+              <About open={openAbout} setOpen={setOpenAbout} />
+              <Main>
+                <AppContent />
+              </Main>
+              <Drawer />
+              <Footer />
             </TodoState>
           </PlayerState>
         </div>

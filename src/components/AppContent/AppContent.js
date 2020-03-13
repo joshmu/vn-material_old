@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Grid } from '@material-ui/core'
 
-import Player from '../components/Player/Player'
-import Notes from '../components/Notes/Notes'
-import SourceLoader from '../components/SourceLoader'
+import Player from '../Player/Player'
+import Notes from '../Notes/Notes'
+import SourceLoader from '../SourceLoader'
 
-import { playerContext } from '../context/player/PlayerState'
+import { playerContext } from '../../context/player/PlayerState'
 
 const AppPage = () => {
   const { ready, url } = useContext(playerContext)

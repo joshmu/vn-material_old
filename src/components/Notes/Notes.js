@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useRef } from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, List, ListItem } from '@material-ui/core'
 
 // todo: click timestamp on todo input to disable timestamp add
 // todo: seek whilst there is a note changes timestamp
@@ -117,21 +117,15 @@ const Todo = () => {
               }
             />
           )}
-          {/* <div className={style.timer}>
-            <span>
-              {state.newTodo.seconds === null
-                ? Math.round(progress.playedSeconds)
-                : state.newTodo.seconds}
-            </span>
-          </div> */}
-          {/* <button>Add</button> */}
         </form>
-        <ul className={style.ul}>
-          {todos.length > 0 &&
-            todos.map(todo => (
+
+        {todos.length > 0 && (
+          <List className={style.list}>
+            {todos.map(todo => (
               <TodoItem key={todo.id} todo={todo} focusInput={focusInput} />
             ))}
-        </ul>
+          </List>
+        )}
       </Grid>
     </Grid>
   )

@@ -2,6 +2,14 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Duration from '../Duration'
 
+import {
+  Checkbox,
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction,
+  ListItemIcon,
+  IconButton
+} from '@material-ui/core'
 import { RadioButtonUnchecked, DoneOutline } from '@material-ui/icons'
 
 import { todoContext } from '../../context/todo/TodoState'
@@ -28,15 +36,39 @@ const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
   }
 
   return (
-    <li className={`${style.todoItem} todoItem ${checked && 'checked'}`}>
-      <span className={`${style.checked} check`} onClick={onCheck}>
-        {checked ? <DoneOutline /> : <RadioButtonUnchecked />}
-      </span>
-      <p className={style.msg} onClick={onTodoClick}>
-        {msg}
-      </p>
-      <Duration className={style.timestamp} seconds={seconds} />
-    </li>
+    <ListItem
+      key={id}
+      role={undefined}
+      dense
+      button
+      // onClick={handleToggle(value)}
+    >
+      <ListItemIcon onClick={onCheck}>
+        <Checkbox
+          edge="start"
+          checked={checked}
+          tabIndex={-1}
+          disableRipple
+          inputProps={{ 'aria-labelledby': id }}
+        />
+      </ListItemIcon>
+      <ListItemText id={id} primary={msg} onClick={onTodoClick} />
+      <ListItemSecondaryAction>
+        <IconButton edge="end" aria-label="comments">
+          <Duration className={style.timestamp} seconds={seconds} />
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
+
+    // <li className={`${style.todoItem} todoItem ${checked && 'checked'}`}>
+    //   <span className={`${style.checked} check`} onClick={onCheck}>
+    //     {checked ? <DoneOutline /> : <RadioButtonUnchecked />}
+    //   </span>
+    //   <p className={style.msg} onClick={onTodoClick}>
+    //     {msg}
+    //   </p>
+    //   <Duration className={style.timestamp} seconds={seconds} />
+    // </li>
   )
 }
 

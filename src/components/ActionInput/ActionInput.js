@@ -78,6 +78,7 @@ const ActionInput = () => {
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
         <input
+          autoFocus
           ref={inputRef}
           id="addTodo"
           name="addTodo"

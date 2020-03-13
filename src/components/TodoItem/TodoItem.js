@@ -8,7 +8,8 @@ import {
   ListItemText,
   ListItemSecondaryAction,
   ListItemIcon,
-  IconButton
+  IconButton,
+  Typography
 } from '@material-ui/core'
 
 import { todoContext } from '../../context/todo/TodoState'
@@ -51,7 +52,11 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
           inputProps={{ 'aria-labelledby': id }}
         />
       </ListItemIcon>
-      <ListItemText id={id} primary={msg} onClick={onTodoClick} />
+      <ListItemText
+        id={id}
+        primary={<Typography variant="body1">{msg}</Typography>}
+        onClick={onTodoClick}
+      />
       <ListItemSecondaryAction>
         <IconButton edge="end" aria-label="comments">
           <Duration className={style.timestamp} seconds={seconds} />
@@ -73,7 +78,6 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired
-  // focusInput: PropTypes.func.isRequired
 }
 
 export default TodoItem

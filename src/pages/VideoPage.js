@@ -22,7 +22,7 @@ const VideoPage = () => {
         {init ? (
           <>
             <Player />
-            {ready && <Notes />}
+            {/* {ready && <Notes />} */}
           </>
         ) : (
           <SourceLoader setInit={setInit} />

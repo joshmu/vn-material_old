@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid'
 import todoReducer from './todoReducer'
 
 import { ADD_TODO, UPDATE_TODO, UPDATE_NEW_TODO, TOGGLE_OPEN } from '../Types'
-import { BottomNavigationAction } from '@material-ui/core'
 
 // create context
 const todoContext = createContext()
@@ -17,7 +16,8 @@ const TodoState = props => {
       seconds: null,
       checked: false
     },
-    open: true,
+    open: false,
+    drawerWidth: '360px',
     todos: []
   }
 
@@ -28,6 +28,7 @@ const TodoState = props => {
   const v = {
     newTodo: state.newTodo,
     open: state.open,
+    drawerWidth: state.drawerWidth,
     todos: state.todos
   }
 

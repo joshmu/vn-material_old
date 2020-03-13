@@ -1,0 +1,21 @@
+.playerWrapper {
+  transition: width 0.3s ease;
+  width: 100%;
+}
+
+.player {
+  width: 100%;
+  height: 100%;
+
+  // REQUIRED
+  background-color: inherit;
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.reactPlayer {
+  // REQUIRED
+  position: absolute;
+  top: 0;
+  left: 0;
+}

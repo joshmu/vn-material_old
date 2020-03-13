@@ -34,27 +34,6 @@
   margin-right: 0.5rem;
 }
 
-.playerWrapper {
-  transition: width 1.3s ease;
-  width: 100%;
-}
-
-.player {
-  // REQUIRED
-  width: inherit;
-  height: inherit;
-  background-color: inherit;
-  position: relative;
-  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-}
-
-.reactPlayer {
-  // REQUIRED
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .form {
   display: flex;
 

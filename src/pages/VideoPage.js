@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Grid } from '@material-ui/core'
 
-import Player from '../components/react-player/Player'
+import Player from '../components/Player/Player'
 import Notes from '../components/Notes'
 import SourceLoader from '../components/SourceLoader'
 

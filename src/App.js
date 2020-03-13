@@ -7,7 +7,8 @@ import theme from './themes/theme'
 
 import Header from './layout/Header'
 import Footer from './layout/Footer'
-import NotesSidebar from './components/NotesSidebar'
+import Drawer from './components/Drawer'
+import Backdrop from './components/Backdrop/Backdrop'
 
 import { PlayerState } from './context/player/PlayerState'
 import { TodoState } from './context/todo/TodoState'
@@ -16,7 +17,7 @@ import Main from './layout/Main'
 import AppPage from './pages/AppPage'
 import VideoPage from './pages/VideoPage'
 import AboutPage from './pages/AboutPage'
-import Notes from './components/Notes'
+import Notes from './components/Notes/Notes'
 
 import './index.scss'
 
@@ -34,6 +35,7 @@ function App() {
           <PlayerState>
             <TodoState>
               <Router>
+                <Backdrop />
                 <Header />
                 <Main>
                   <Switch>
@@ -45,7 +47,7 @@ function App() {
                   </Switch>
                 </Main>
 
-                <NotesSidebar />
+                <Drawer />
                 <Footer />
               </Router>
             </TodoState>

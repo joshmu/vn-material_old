@@ -13,14 +13,14 @@ import { Grid } from '@material-ui/core'
 // todo: context auto saved to localStorage?
 // todo: width of video to view port OR 90% of height?
 
-import TodoItem from './TodoItem'
-import Duration from './Duration'
-import Timeline from './Timeline'
+import TodoItem from '../TodoItem/TodoItem'
+import Duration from '../Duration'
+import Timeline from '../Timeline'
 
-import { playerContext } from '../context/player/PlayerState'
-import { todoContext } from '../context/todo/TodoState'
+import { playerContext } from '../../context/player/PlayerState'
+import { todoContext } from '../../context/todo/TodoState'
 
-import style from '../styles.module.scss'
+import style from './notes.module.scss'
 
 const Todo = () => {
   const inputRef = useRef()
@@ -92,14 +92,7 @@ const Todo = () => {
 
   return (
     <Grid container justify="center">
-      <Grid
-        item
-        style={{
-          // backgroundColor: 'salmon',
-          marginTop: '2rem'
-        }}
-        xs={10}
-      >
+      <Grid item className={style.notes} xs={10}>
         <Timeline />
         <form className={style.form} onSubmit={onSubmit}>
           <label htmlFor="addTodo"></label>

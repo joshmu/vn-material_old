@@ -1,12 +1,3 @@
-.timer {
-  // background-color: lightgrey;
-  color: #7a899980;
-  background-color: white;
-  font-weight: lighter;
-  // color: #112121;
-  padding: 0.9rem;
-}
-
 .todoItem {
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -14,11 +5,13 @@
   margin: 0rem 2rem;
   padding: 0.5rem;
   text-align: left;
+  cursor: pointer;
 
   p {
     flex: 1;
     font-weight: lighter;
     color: #112121;
+    margin: 0;
   }
 }
 
@@ -33,19 +26,9 @@
   font-style: italic;
   margin-right: 0.5rem;
 }
-
-.form {
-  display: flex;
-
-  input {
-    border: none;
-    padding: 0.7rem;
-    flex: 1;
-    width: 100%;
-    font-size: 1.3rem;
-    font-weight: 200;
-    &:focus {
-      border: none;
-    }
-  }
+.check {
+  color: green;
+}
+.msg {
+  color: lightgrey;
 }

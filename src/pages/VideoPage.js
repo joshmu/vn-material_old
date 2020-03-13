@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Grid } from '@material-ui/core'
 
 import Player from '../components/Player/Player'
-import Notes from '../components/Notes'
+import Notes from '../components/Notes/Notes'
 import SourceLoader from '../components/SourceLoader'
 
 import { playerContext } from '../context/player/PlayerState'
@@ -22,7 +22,7 @@ const VideoPage = () => {
         {init ? (
           <>
             <Player />
-            {/* {ready && <Notes />} */}
+            {ready && <Notes />}
           </>
         ) : (
           <SourceLoader setInit={setInit} />

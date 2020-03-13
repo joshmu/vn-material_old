@@ -14,24 +14,6 @@ ul {
   padding: 0;
 }
 
-// VN TODO ITEM
-.todoItem {
-  cursor: pointer;
-
-  p {
-    margin: 0;
-  }
-
-  &.checked {
-    .check {
-      color: green;
-    }
-    .msg {
-      color: lightgrey;
-    }
-  }
-}
-
 // remove the blue focus outline
 a:focus,
 button:focus,

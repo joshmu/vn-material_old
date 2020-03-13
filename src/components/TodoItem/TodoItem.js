@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import Duration from './Duration'
+import Duration from '../Duration'
 
 import { RadioButtonUnchecked, DoneOutline } from '@material-ui/icons'
 
-import { todoContext } from '../context/todo/TodoState'
-import { playerContext } from '../context/player/PlayerState'
+import { todoContext } from '../../context/todo/TodoState'
+import { playerContext } from '../../context/player/PlayerState'
 
-import style from '../styles.module.scss'
+import style from './todoItem.module.scss'
 
 const TodoItem = ({ todo: { id, msg, seconds, checked }, focusInput }) => {
   const { updateTodo } = useContext(todoContext)

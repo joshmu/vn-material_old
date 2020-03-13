@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { makeStyles, Grid } from '@material-ui/core'
 
-import Player from '../components/react-player/Player'
-import Notes from '../components/Notes'
+import Player from '../components/Player/Player'
+import Notes from '../components/Notes/Notes'
 import SourceLoader from '../components/SourceLoader'
 
 import { playerContext } from '../context/player/PlayerState'

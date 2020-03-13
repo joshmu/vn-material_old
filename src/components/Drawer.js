@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core'
 import { ChevronLeft, ChevronRight } from '@material-ui/icons'
 
-import Notes from './Notes'
+import Notes from './Notes/Notes'
 
 import { todoContext } from '../context/todo/TodoState'
 

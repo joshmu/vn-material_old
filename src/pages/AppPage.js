@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { makeStyles, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 import Player from '../components/Player/Player'
 import Notes from '../components/Notes/Notes'
@@ -7,47 +7,7 @@ import SourceLoader from '../components/SourceLoader'
 
 import { playerContext } from '../context/player/PlayerState'
 
-const drawerWidth = 340
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex'
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-
-  // drawerHeader: {
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   padding: theme.spacing(0, 1),
-  //   ...theme.mixins.toolbar,
-  //   justifyContent: 'flex-start'
-  // },
-  content: {
-    // flexGrow: 1,
-    // padding: theme.spacing(3),
-    // transition: theme.transitions.create('margin', {
-    //   easing: theme.transitions.easing.sharp,
-    //   duration: theme.transitions.duration.leavingScreen
-    // }),
-    // marginRight: -drawerWidth,
-    // width: `calc(100% - ${drawerWidth}px)`
-  },
-  contentShift: {
-    // transition: theme.transitions.create('margin', {
-    //   easing: theme.transitions.easing.easeOut,
-    //   duration: theme.transitions.duration.enteringScreen
-    // }),
-    // marginRight: 0,
-    // width: '100%'
-  }
-}))
-
 const AppPage = () => {
-  const classes = useStyles()
-
   const { ready, url } = useContext(playerContext)
   const [init, setInit] = useState(false)
 
@@ -57,12 +17,18 @@ const AppPage = () => {
   }, [url])
 
   return (
-    <Grid container className={classes.root}>
+    <Grid container>
       <Grid item xs={12}>
         {init ? (
           <>
             <Player />
-            {ready && <Notes />}
+            {ready && (
+              <Grid container justify="center">
+                <Grid item md={9}>
+                  <Notes />
+                </Grid>
+              </Grid>
+            )}
           </>
         ) : (
           <SourceLoader setInit={setInit} />

@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { ThemeProvider } from '@material-ui/core'
-import { CssBaseline } from '@material-ui/core'
+import { ThemeProvider, CssBaseline } from '@material-ui/core'
 import theme from './themes/theme'
 
 import Header from './layout/Header'
@@ -15,7 +14,6 @@ import { TodoState } from './context/todo/TodoState'
 
 import Main from './layout/Main'
 import AppPage from './pages/AppPage'
-import VideoPage from './pages/VideoPage'
 import AboutPage from './pages/AboutPage'
 import Notes from './components/Notes/Notes'
 
@@ -40,7 +38,6 @@ function App() {
                 <Main>
                   <Switch>
                     <Route exact path="/" component={AppPage} />
-                    <Route exact path="/video" component={VideoPage} />
                     <Route exact path="/notes" component={Notes} />
                     <Route exact path="/about" component={AboutPage} />
                     <Route component={AppPage} />

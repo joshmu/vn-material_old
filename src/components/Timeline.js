@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { LinearProgress } from '@material-ui/core'
 import { playerContext } from '../context/player/PlayerState'
 
 const Timeline = () => {
@@ -14,13 +15,20 @@ const Timeline = () => {
 
   return (
     <div style={timelineWrapper}>
-      <div
+      <LinearProgress
+        variant="buffer"
+        value={+(progress.played * 100).toFixed(2)}
+        valueBuffer={+(progress.loaded * 100).toFixed(2)}
+        color="secondary"
+      />
+
+      {/* <div
         style={{
           width: `${+(progress.played * 100).toFixed(2)}%`,
           background: 'salmon',
           height: '0.2rem'
         }}
-      ></div>
+      ></div> */}
     </div>
   )
 }

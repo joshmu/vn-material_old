@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const Header = () => {
   const classes = useStyles()
-  const { toggleOpen, open } = useContext(todoContext)
+  const { toggleOpen } = useContext(todoContext)
   return (
     <AppBar position="static">
       <Toolbar>
@@ -47,14 +47,6 @@ const Header = () => {
         >
           App
         </Button>{' '}
-        <Button
-          className={classes.button}
-          color="inherit"
-          component={Link}
-          to="video"
-        >
-          Video
-        </Button>
         <Button
           color="inherit"
           onClick={() => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Grid, List } from '@material-ui/core'
 
 // todo: click timestamp on todo input to disable timestamp add
@@ -16,20 +16,16 @@ import { Grid, List } from '@material-ui/core'
 import ActionInput from '../ActionInput/ActionInput'
 import TodoItem from '../TodoItem/TodoItem'
 
-import { playerContext } from '../../context/player/PlayerState'
 import { todoContext } from '../../context/todo/TodoState'
 
 import style from './notes.module.scss'
 
 const Todo = () => {
-  const { newTodo, todos, updateNewTodo, actionInputRef } = useContext(
-    todoContext
-  )
-  const { progress, ready } = useContext(playerContext)
+  const { todos } = useContext(todoContext)
 
   return (
     <Grid container justify="center">
-      <Grid item className={style.notes} xs={10}>
+      <Grid item className={style.notes} xs={12}>
         <ActionInput />
 
         {todos.length > 0 && (

@@ -23,8 +23,11 @@ const LoadSource = ({ setInit }) => {
 
   const onSubmit = e => {
     e.preventDefault()
-    loadVideo(url)
-    setInit(true)
+    // prevent submit on blank input
+    if (url.length > 0) {
+      loadVideo(url)
+      setInit(true)
+    }
   }
 
   return (

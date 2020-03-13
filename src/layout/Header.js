@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = () => {
+const Header = ({ setOpenAbout }) => {
   const classes = useStyles()
   const { toggleOpen } = useContext(todoContext)
   return (
@@ -55,7 +55,12 @@ const Header = () => {
         >
           Notes
         </Button>
-        <Button color="inherit" component={Link} to="about">
+        <Button
+          color="inherit"
+          onClick={() => {
+            setOpenAbout(true)
+          }}
+        >
           About
         </Button>
       </Toolbar>

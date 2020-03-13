@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider, CssBaseline } from '@material-ui/core'
@@ -16,6 +16,7 @@ import Main from './layout/Main'
 import AppPage from './pages/AppPage'
 import AboutPage from './pages/AboutPage'
 import Notes from './components/Notes/Notes'
+import About from './components/About/About'
 
 import './index.scss'
 
@@ -26,6 +27,8 @@ const appContainerStyle = {
 }
 
 function App() {
+  const [openAbout, setOpenAbout] = useState(false)
+
   return (
     <CssBaseline>
       <ThemeProvider theme={theme}>
@@ -34,7 +37,8 @@ function App() {
             <TodoState>
               <Router>
                 <Backdrop />
-                <Header />
+                <Header setOpenAbout={setOpenAbout} />
+                <About open={openAbout} setOpen={setOpenAbout} />
                 <Main>
                   <Switch>
                     <Route exact path="/" component={AppPage} />

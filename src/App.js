@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { ThemeProvider, CssBaseline } from '@material-ui/core'
+import { ThemeProvider, CssBaseline, StylesProvider } from '@material-ui/core'
 import theme from './themes/theme'
 
 import Header from './layout/Header'
@@ -29,20 +29,22 @@ function App() {
   return (
     <CssBaseline>
       <ThemeProvider theme={theme}>
-        <div style={appContainerStyle}>
-          <PlayerState>
-            <TodoState>
-              <Backdrop />
-              <Header setOpenAbout={setOpenAbout} />
-              <About open={openAbout} setOpen={setOpenAbout} />
-              <Main>
-                <AppContent />
-              </Main>
-              <Drawer />
-              <Footer />
-            </TodoState>
-          </PlayerState>
-        </div>
+        <StylesProvider injectFirst>
+          <div style={appContainerStyle}>
+            <PlayerState>
+              <TodoState>
+                <Backdrop />
+                <Header setOpenAbout={setOpenAbout} />
+                <About open={openAbout} setOpen={setOpenAbout} />
+                <Main>
+                  <AppContent />
+                </Main>
+                <Drawer />
+                <Footer />
+              </TodoState>
+            </PlayerState>
+          </div>
+        </StylesProvider>
       </ThemeProvider>
     </CssBaseline>
   )

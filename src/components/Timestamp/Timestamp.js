@@ -1,14 +1,20 @@
 import React from 'react'
 
-const Duration = ({ className, seconds }) => {
+import { IconButton } from '@material-ui/core'
+
+import style from './timestamp.module.scss'
+
+const Timestamp = ({ seconds }) => {
   return (
-    <time dateTime={`P${Math.round(seconds)}S`} className={className}>
-      {format(seconds)}
-    </time>
+    <div className={style.timestamp}>
+      <IconButton edge="end" aria-label="timestamp">
+        <time dateTime={`P${Math.round(seconds)}S`}>{format(seconds)}</time>
+      </IconButton>
+    </div>
   )
 }
 
-export default Duration
+export default Timestamp
 
 function format(seconds) {
   const date = new Date(seconds * 1000)

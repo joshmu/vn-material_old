@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import Duration from '../Duration'
+import Timestamp from '../Timestamp/Timestamp'
 
 import {
   Checkbox,
@@ -43,7 +43,7 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
       button
       // onClick={handleToggle(value)}
     >
-      <ListItemIcon onClick={onCheck}>
+      <ListItemIcon onClick={onCheck} className={style.listItemIcon}>
         <Checkbox
           edge="start"
           checked={checked}
@@ -58,9 +58,7 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
         onClick={onTodoClick}
       />
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="comments">
-          <Duration className={style.timestamp} seconds={seconds} />
-        </IconButton>
+        <Timestamp className={style.timestamp} seconds={seconds} />
       </ListItemSecondaryAction>
     </ListItem>
 
@@ -71,7 +69,7 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
     //   <p className={style.msg} onClick={onTodoClick}>
     //     {msg}
     //   </p>
-    //   <Duration className={style.timestamp} seconds={seconds} />
+    //   <Timestamp className={style.timestamp} seconds={seconds} />
     // </li>
   )
 }

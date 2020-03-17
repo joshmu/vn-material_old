@@ -1,13 +1,14 @@
 import React, { useRef, useContext, useEffect } from 'react'
 
-import Duration from '../Duration'
+import { Input } from '@material-ui/core'
+
+import Timestamp from '../Timestamp/Timestamp'
 import Timeline from '../Timeline/Timeline'
 
 import { playerContext } from '../../context/player/PlayerState'
 import { todoContext } from '../../context/todo/TodoState'
 
 import style from './actionInput.module.scss'
-import { Button } from '@material-ui/core'
 
 const ActionInput = () => {
   const inputRef = useRef()
@@ -78,7 +79,7 @@ const ActionInput = () => {
       {ready && <Timeline className={style.timeline} />}
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
-        <input
+        <Input
           className={style.input}
           autoFocus
           ref={inputRef}
@@ -90,17 +91,25 @@ const ActionInput = () => {
           autoComplete="off"
           onChange={onChange}
           onKeyDown={onKeyDown}
+          endAdornment={
+            <Timestamp
+              seconds={
+                newTodo.seconds === null
+                  ? progress.playedSeconds
+                  : newTodo.seconds
+              }
+            />
+          }
         />
-        {ready && (
-          <Duration
-            className={style.timer}
+        {/* {ready && (
+          <Timestamp
             seconds={
               newTodo.seconds === null
                 ? progress.playedSeconds
                 : newTodo.seconds
             }
           />
-        )}
+        )} */}
       </form>
     </div>
   )

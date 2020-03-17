@@ -25,6 +25,7 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
   const onTodoClick = () => {
     console.log('onTodoClick')
     actionInputRef.current.focus()
+    console.log({ bufferSeconds })
     seekTo(seconds + bufferSeconds)
   }
 
@@ -35,6 +36,9 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
       checked: !checked
     })
   }
+
+  const formattedSeconds =
+    seconds + bufferSeconds >= 0 ? seconds + bufferSeconds : 0
 
   return (
     <ListItem
@@ -59,7 +63,7 @@ const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
         onClick={onTodoClick}
       />
       <ListItemSecondaryAction>
-        <Timestamp className={style.timestamp} seconds={seconds} />
+        <Timestamp className={style.timestamp} seconds={formattedSeconds} />
       </ListItemSecondaryAction>
     </ListItem>
 

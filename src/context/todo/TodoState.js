@@ -8,7 +8,8 @@ import {
   UPDATE_TODO,
   UPDATE_NEW_TODO,
   TOGGLE_OPEN,
-  SET_ACTION_INPUT_REF
+  SET_ACTION_INPUT_REF,
+  SET_TODOS
 } from '../Types'
 
 // create context
@@ -46,6 +47,13 @@ const TodoState = props => {
     dispatch({
       type: SET_ACTION_INPUT_REF,
       payload: ref
+    })
+  }
+
+  v.setTodos = todos => {
+    dispatch({
+      type: SET_TODOS,
+      payload: todos
     })
   }
 

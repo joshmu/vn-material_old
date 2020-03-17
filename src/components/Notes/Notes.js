@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Grid } from '@material-ui/core'
 
 // todo: click timestamp on todo input to disable timestamp add
@@ -12,6 +12,7 @@ import { Grid } from '@material-ui/core'
 // todo: load back in csv? with video url too?
 // todo: context auto saved to localStorage?
 // todo: width of video to view port OR 90% of height?
+// todo: add bufferSeconds to all timestamps when exporting
 
 import ActionInput from '../ActionInput/ActionInput'
 import NotesList from '../NotesList/NotesList'

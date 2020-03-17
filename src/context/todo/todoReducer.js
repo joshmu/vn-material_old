@@ -3,7 +3,8 @@ import {
   UPDATE_TODO,
   UPDATE_NEW_TODO,
   TOGGLE_OPEN,
-  SET_ACTION_INPUT_REF
+  SET_ACTION_INPUT_REF,
+  SET_TODOS
 } from '../Types'
 
 export default (state, action) => {
@@ -39,6 +40,11 @@ export default (state, action) => {
       return {
         ...state,
         actionInputRef: action.payload
+      }
+    case SET_TODOS:
+      return {
+        ...state,
+        todos: action.payload
       }
     default:
       return state

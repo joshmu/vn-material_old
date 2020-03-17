@@ -18,7 +18,7 @@ const GlobalState = props => {
     settingsOpen: false,
     aboutOpen: false,
     notesDrawerOpen: false,
-    bufferSeconds: 5
+    bufferSeconds: -3
   }
 
   // better control of state using reducer

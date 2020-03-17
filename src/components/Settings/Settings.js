@@ -58,7 +58,7 @@ const Settings = () => {
                     id="standard-adornment-bufferSeconds"
                     type="number"
                     value={bufferSeconds}
-                    onChange={e => setBufferSeconds(e.target.value)}
+                    onChange={e => setBufferSeconds(+e.target.value)}
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton aria-label="seconds buffer"></IconButton>

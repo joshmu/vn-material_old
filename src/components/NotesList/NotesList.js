@@ -4,11 +4,13 @@ import { List } from '@material-ui/core'
 import TodoItem from '../TodoItem/TodoItem'
 
 import { todoContext } from '../../context/todo/TodoState'
+import { playerContext } from '../../context/player/PlayerState'
 
 import style from './notesList.module.scss'
 
 const NotesList = () => {
   const { todos, setTodos } = useContext(todoContext)
+  const { player } = useContext(playerContext)
 
   // set todos if they are present in local storage
   useEffect(() => {
@@ -30,11 +32,13 @@ const NotesList = () => {
 
   return (
     <>
-      {todos.length > 0 && (
+      {todos.filter(t => t.url === player.props.url).length > 0 && (
         <List className={style.notesList}>
-          {todos.map(todo => (
-            <TodoItem key={todo.id} todo={todo} />
-          ))}
+          {todos
+            .filter(t => t.url === player.props.url)
+            .map(todo => (
+              <TodoItem key={todo.id} todo={todo} />
+            ))}
         </List>
       )}
     </>

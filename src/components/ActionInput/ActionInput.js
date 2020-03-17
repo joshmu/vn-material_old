@@ -16,7 +16,9 @@ const ActionInput = () => {
   const { newTodo, addTodo, updateNewTodo, setActionInputRef } = useContext(
     todoContext
   )
-  const { progress, ready, togglePlay, seekTo } = useContext(playerContext)
+  const { player, progress, ready, togglePlay, seekTo } = useContext(
+    playerContext
+  )
 
   useEffect(() => {
     if (newTodo.msg.length > 0 && newTodo.seconds === null) {
@@ -35,7 +37,8 @@ const ActionInput = () => {
 
   const onSubmit = e => {
     e.preventDefault()
-    addTodo()
+    const url = player.props.url
+    addTodo(url)
   }
 
   const onChange = e => {

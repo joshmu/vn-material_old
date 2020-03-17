@@ -11,6 +11,7 @@ import { ChevronLeft, ChevronRight } from '@material-ui/icons'
 import Notes from '../Notes/Notes'
 
 import { todoContext } from '../../context/todo/TodoState'
+import { playerContext } from '../../context/player/PlayerState'
 import { globalContext } from '../../context/global/GlobalState'
 
 const useStyles = makeStyles(theme => ({
@@ -25,6 +26,7 @@ const NotesSidebar = () => {
   const theme = useTheme()
 
   const { actionInputRef } = useContext(todoContext)
+  const { ready } = useContext(playerContext)
   const { notesDrawerOpen, toggleNotesDrawerOpen } = useContext(globalContext)
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const NotesSidebar = () => {
         </IconButton>
       </div>
       <Divider />
-      <Notes />
+      {ready && <Notes />}
     </Drawer>
   )
 }

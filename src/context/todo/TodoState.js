@@ -21,7 +21,8 @@ const TodoState = props => {
     newTodo: {
       msg: '',
       seconds: null,
-      checked: false
+      checked: false,
+      source: ''
     },
     open: false,
     drawerWidth: '360px',
@@ -64,9 +65,10 @@ const TodoState = props => {
     })
   }
 
-  v.addTodo = () => {
+  v.addTodo = url => {
     // provide unique id
     state.newTodo.id = uuidv4()
+    state.newTodo.url = url
 
     dispatch({
       type: ADD_TODO

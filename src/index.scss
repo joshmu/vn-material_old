@@ -20,6 +20,8 @@ body {
     rgba(221, 221, 245, 1) 37%,
     rgba(215, 248, 255, 1) 100%
   );
+  height: 100vh;
+  // overflow: hidden;
 }
 
 ul {
@@ -37,6 +39,6 @@ input:focus,
 input {
   :focus,
   :active {
-    background-color: white;
+    background-color: var(--actionInputBg);
   }
 }

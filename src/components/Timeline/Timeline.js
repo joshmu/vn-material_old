@@ -21,7 +21,7 @@ const Timeline = () => {
         variant="buffer"
         value={+(progress.played * 100).toFixed(2)}
         valueBuffer={+(progress.loaded * 100).toFixed(2)}
-        color="secondary"
+        color="primary"
       />
     </div>
   )

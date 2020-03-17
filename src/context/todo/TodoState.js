@@ -42,6 +42,7 @@ const TodoState = props => {
 
   // actions
   v.setActionInputRef = ref => {
+    window.actionInputRef = ref
     dispatch({
       type: SET_ACTION_INPUT_REF,
       payload: ref

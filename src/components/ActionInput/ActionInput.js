@@ -81,8 +81,8 @@ const ActionInput = () => {
         <label htmlFor="addTodo"></label>
         <Input
           className={style.input}
-          autoFocus
-          ref={inputRef}
+          autoFocus={true}
+          inputRef={inputRef}
           id="addTodo"
           name="addTodo"
           type="text"
@@ -92,24 +92,19 @@ const ActionInput = () => {
           onChange={onChange}
           onKeyDown={onKeyDown}
           endAdornment={
-            <Timestamp
-              seconds={
-                newTodo.seconds === null
-                  ? progress.playedSeconds
-                  : newTodo.seconds
-              }
-            />
+            ready && (
+              <div className={style.timestamp}>
+                <Timestamp
+                  seconds={
+                    newTodo.seconds === null
+                      ? progress.playedSeconds
+                      : newTodo.seconds
+                  }
+                />
+              </div>
+            )
           }
         />
-        {/* {ready && (
-          <Timestamp
-            seconds={
-              newTodo.seconds === null
-                ? progress.playedSeconds
-                : newTodo.seconds
-            }
-          />
-        )} */}
       </form>
     </div>
   )

@@ -8,8 +8,9 @@ import SourceLoader from '../SourceLoader'
 import { playerContext } from '../../context/player/PlayerState'
 
 const AppPage = () => {
-  const { ready, url } = useContext(playerContext)
   const [init, setInit] = useState(false)
+
+  const { ready, url } = useContext(playerContext)
 
   // remember the previous url when switching route
   useEffect(() => {

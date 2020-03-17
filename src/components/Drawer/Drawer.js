@@ -11,6 +11,7 @@ import { ChevronLeft, ChevronRight } from '@material-ui/icons'
 import Notes from '../Notes/Notes'
 
 import { todoContext } from '../../context/todo/TodoState'
+import { globalContext } from '../../context/global/GlobalState'
 
 const useStyles = makeStyles(theme => ({
   drawerPaper: {
@@ -23,26 +24,27 @@ const NotesSidebar = () => {
   const classes = useStyles()
   const theme = useTheme()
 
-  const { toggleOpen, open, actionInputRef } = useContext(todoContext)
+  const { actionInputRef } = useContext(todoContext)
+  const { notesDrawerOpen, toggleNotesDrawerOpen } = useContext(globalContext)
 
   useEffect(() => {
-    if (open) {
+    if (notesDrawerOpen) {
       actionInputRef.current.focus()
     }
     // eslint-disable-next-line
-  }, [open])
+  }, [notesDrawerOpen])
 
   return (
     <Drawer
       variant="persistent"
       anchor="right"
-      open={open}
+      open={notesDrawerOpen}
       classes={{
         paper: classes.drawerPaper
       }}
     >
       <div>
-        <IconButton onClick={toggleOpen}>
+        <IconButton onClick={toggleNotesDrawerOpen}>
           {theme.direction === 'rtl' ? <ChevronLeft /> : <ChevronRight />}
         </IconButton>
       </div>

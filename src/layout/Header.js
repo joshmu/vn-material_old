@@ -1,4 +1,4 @@
-import React, { useContext, Link } from 'react'
+import React, { useContext } from 'react'
 
 import {
   makeStyles,
@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 import { Theaters as TheatersIcon } from '@material-ui/icons'
 
-import { todoContext } from '../context/todo/TodoState'
+import { globalContext } from '../context/global/GlobalState'
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -21,9 +21,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = ({ setOpenAbout }) => {
+const Header = () => {
   const classes = useStyles()
-  const { toggleOpen } = useContext(todoContext)
+  const {
+    toggleSettingsOpen,
+    toggleAboutOpen,
+    toggleNotesDrawerOpen
+  } = useContext(globalContext)
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -32,6 +37,7 @@ const Header = ({ setOpenAbout }) => {
           className={classes.menuButton}
           color="inherit"
           aria-label="menu"
+          onClick={toggleSettingsOpen}
         >
           <TheatersIcon />
         </IconButton>
@@ -39,17 +45,9 @@ const Header = ({ setOpenAbout }) => {
           VideoNote
         </Typography>
         <Button
-          className={classes.button}
-          color="inherit"
-          component={Link}
-          to="vn"
-        >
-          App
-        </Button>{' '}
-        <Button
           color="inherit"
           onClick={() => {
-            toggleOpen(true)
+            toggleNotesDrawerOpen(true)
           }}
         >
           Notes
@@ -57,7 +55,15 @@ const Header = ({ setOpenAbout }) => {
         <Button
           color="inherit"
           onClick={() => {
-            setOpenAbout(true)
+            toggleSettingsOpen(true)
+          }}
+        >
+          Settings
+        </Button>
+        <Button
+          color="inherit"
+          onClick={() => {
+            toggleAboutOpen(true)
           }}
         >
           About

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   Grid,
   Typography,
@@ -14,6 +14,8 @@ import {
   Mood as MoodIcon
 } from '@material-ui/icons'
 
+import { globalContext } from '../../context/global/GlobalState'
+
 const useStyles = makeStyles(theme => ({
   paper: {
     padding: '2rem'
@@ -24,16 +26,18 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const About = ({ open, setOpen }) => {
+const About = () => {
   const classes = useStyles()
 
-  const toggle = bool => {
-    typeof bool === 'boolean' ? setOpen(bool) : setOpen(!open)
-  }
+  const { aboutOpen, toggleAboutOpen } = useContext(globalContext)
 
   return (
     <div>
-      <Dialog onClose={toggle} aria-labelledby="about-information" open={open}>
+      <Dialog
+        onClose={toggleAboutOpen}
+        aria-labelledby="about-information"
+        open={aboutOpen}
+      >
         <DialogContent dividers>
           <Grid container justify="center" style={{ marginTop: '2rem' }}>
             <Grid item style={{ textAlign: 'center' }}>
@@ -66,7 +70,7 @@ const About = ({ open, setOpen }) => {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={toggle} color="primary">
+          <Button autoFocus onClick={toggleAboutOpen} color="primary">
             Have fun!
           </Button>
         </DialogActions>

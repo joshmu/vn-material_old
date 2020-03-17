@@ -21,4 +21,8 @@
 
 .timestamp {
   margin-right: 0.5rem;
+  // override
+  button {
+    color: #000000;
+  }
 }

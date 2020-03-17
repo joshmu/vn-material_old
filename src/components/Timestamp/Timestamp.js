@@ -8,7 +8,9 @@ const Timestamp = ({ seconds }) => {
   return (
     <div className={style.timestamp}>
       <IconButton edge="end" aria-label="timestamp">
-        <time dateTime={`P${Math.round(seconds)}S`}>{format(seconds)}</time>
+        <time dateTime={`P${Math.round(seconds)}S`} className={style.time}>
+          {format(seconds)}
+        </time>
       </IconButton>
     </div>
   )

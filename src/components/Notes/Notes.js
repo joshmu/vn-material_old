@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Grid, List } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 // todo: click timestamp on todo input to disable timestamp add
 // todo: seek whilst there is a note changes timestamp
@@ -14,27 +14,16 @@ import { Grid, List } from '@material-ui/core'
 // todo: width of video to view port OR 90% of height?
 
 import ActionInput from '../ActionInput/ActionInput'
-import TodoItem from '../TodoItem/TodoItem'
-
-import { todoContext } from '../../context/todo/TodoState'
+import NotesList from '../NotesList/NotesList'
 
 import style from './notes.module.scss'
 
 const Todo = () => {
-  const { todos } = useContext(todoContext)
-
   return (
     <Grid container justify="center">
       <Grid item className={style.notes} xs={12}>
         <ActionInput />
-
-        {todos.length > 0 && (
-          <List className={style.list}>
-            {todos.map(todo => (
-              <TodoItem key={todo.id} todo={todo} />
-            ))}
-          </List>
-        )}
+        <NotesList />
       </Grid>
     </Grid>
   )

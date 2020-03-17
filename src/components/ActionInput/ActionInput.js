@@ -1,12 +1,13 @@
 import React, { useRef, useContext, useEffect } from 'react'
 
 import Duration from '../Duration'
-import Timeline from '../Timeline'
+import Timeline from '../Timeline/Timeline'
 
 import { playerContext } from '../../context/player/PlayerState'
 import { todoContext } from '../../context/todo/TodoState'
 
 import style from './actionInput.module.scss'
+import { Button } from '@material-ui/core'
 
 const ActionInput = () => {
   const inputRef = useRef()
@@ -73,11 +74,12 @@ const ActionInput = () => {
   }
 
   return (
-    <div>
-      {ready && <Timeline />}
+    <div className={style.actionInput}>
+      {ready && <Timeline className={style.timeline} />}
       <form className={style.form} onSubmit={onSubmit}>
         <label htmlFor="addTodo"></label>
         <input
+          className={style.input}
           autoFocus
           ref={inputRef}
           id="addTodo"

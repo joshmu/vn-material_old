@@ -1,28 +1,28 @@
 .actionInput {
-  background-color: 'aqua';
+  background-color: var(--actionInputBg);
 }
 
 .form {
   display: flex;
+}
 
-  input {
+.input {
+  background-color: transparent;
+  border: none;
+  padding: 0.7rem;
+  flex: 1;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 200;
+  &:focus {
     border: none;
-    padding: 0.7rem;
-    flex: 1;
-    width: 100%;
-    font-size: 1.3rem;
-    font-weight: 200;
-    &:focus {
-      border: none;
-    }
   }
 }
 
 .timer {
-  // background-color: lightgrey;
+  background-color: transparent;
   // color: #7a899980;
   color: rgba(0, 0, 0, 0.5);
-  background-color: white;
   font-weight: lighter;
   // color: #112121;
   padding: 0.9rem;

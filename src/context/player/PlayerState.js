@@ -24,8 +24,8 @@ const PlayerState = props => {
     nativeControls: false,
     ready: false,
     duration: 0,
-    // url: 'https://www.youtube.com/watch?v=hE2Ira-Cwxo',
-    url: null,
+    url: 'https://www.youtube.com/watch?v=hE2Ira-Cwxo',
+    // url: null,
     progress: {
       playedSeconds: 0,
       played: 0,

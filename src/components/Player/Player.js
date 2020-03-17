@@ -57,7 +57,7 @@ const Player = () => {
           height="100%"
           config={{
             youtube: {
-              playerVars: { showinfo: 1, autoplay: 1 },
+              playerVars: { showinfo: 0, autoplay: 0 },
               preload: true
             }
           }}

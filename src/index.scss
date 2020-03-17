@@ -2,9 +2,12 @@
   --blueGrey100: #cfd8dc;
   --blueGrey500: #607d8b;
   --indigoA100: #8c9eff;
+  --grey50: #fafafa;
+  --grey900: #212121;
 
   // components
   --drawerBg: var(--blueGrey100);
+  --actionInputBg: var(--grey50);
 }
 
 body {

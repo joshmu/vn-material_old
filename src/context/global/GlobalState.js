@@ -5,7 +5,8 @@ import globalReducer from './globalReducer'
 import {
   TOGGLE_SETTINGS_OPEN,
   TOGGLE_ABOUT_OPEN,
-  TOGGLE_NOTES_DRAWER_OPEN
+  TOGGLE_NOTES_DRAWER_OPEN,
+  SET_BUFFER_SECONDS
 } from '../Types'
 
 // create the context
@@ -16,7 +17,8 @@ const GlobalState = props => {
   const initialState = {
     settingsOpen: false,
     aboutOpen: false,
-    notesDrawerOpen: false
+    notesDrawerOpen: false,
+    bufferSeconds: 5
   }
 
   // better control of state using reducer
@@ -25,7 +27,8 @@ const GlobalState = props => {
   const v = {
     settingsOpen: state.settingsOpen,
     aboutOpen: state.aboutOpen,
-    notesDrawerOpen: state.notesDrawerOpen
+    notesDrawerOpen: state.notesDrawerOpen,
+    bufferSeconds: state.bufferSeconds
   }
 
   // actions
@@ -47,6 +50,13 @@ const GlobalState = props => {
     dispatch({
       type: TOGGLE_NOTES_DRAWER_OPEN,
       payload: open
+    })
+  }
+
+  v.setBufferSeconds = secs => {
+    dispatch({
+      type: SET_BUFFER_SECONDS,
+      payload: secs
     })
   }
 

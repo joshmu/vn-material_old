@@ -7,7 +7,12 @@ import {
   makeStyles,
   Dialog,
   DialogContent,
-  DialogActions
+  DialogActions,
+  FormControl,
+  InputLabel,
+  Input,
+  InputAdornment,
+  IconButton
 } from '@material-ui/core'
 
 import { globalContext } from '../../context/global/GlobalState'
@@ -25,7 +30,12 @@ const useStyles = makeStyles(theme => ({
 const Settings = () => {
   const classes = useStyles()
 
-  const { settingsOpen, toggleSettingsOpen } = useContext(globalContext)
+  const {
+    settingsOpen,
+    toggleSettingsOpen,
+    bufferSeconds,
+    setBufferSeconds
+  } = useContext(globalContext)
 
   return (
     <div>
@@ -39,6 +49,23 @@ const Settings = () => {
             <Grid item style={{ textAlign: 'center' }}>
               <Paper elevation={3} className={classes.paper}>
                 <Typography>Settings</Typography>
+
+                <FormControl>
+                  <InputLabel htmlFor="standard-adornment-bufferSeconds">
+                    Buffer (seconds)
+                  </InputLabel>
+                  <Input
+                    id="standard-adornment-bufferSeconds"
+                    type="number"
+                    value={bufferSeconds}
+                    onChange={e => setBufferSeconds(e.target.value)}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton aria-label="seconds buffer"></IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
               </Paper>
             </Grid>
           </Grid>

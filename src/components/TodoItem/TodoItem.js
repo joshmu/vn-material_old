@@ -13,17 +13,19 @@ import {
 
 import { todoContext } from '../../context/todo/TodoState'
 import { playerContext } from '../../context/player/PlayerState'
+import { globalContext } from '../../context/global/GlobalState'
 
 import style from './todoItem.module.scss'
 
 const TodoItem = ({ todo: { id, msg, seconds, checked } }) => {
   const { updateTodo, actionInputRef } = useContext(todoContext)
   const { seekTo } = useContext(playerContext)
+  const { bufferSeconds } = useContext(globalContext)
 
   const onTodoClick = () => {
     console.log('onTodoClick')
     actionInputRef.current.focus()
-    seekTo(seconds)
+    seekTo(seconds + bufferSeconds)
   }
 
   const onCheck = () => {

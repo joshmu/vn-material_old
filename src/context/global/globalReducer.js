@@ -1,7 +1,8 @@
 import {
   TOGGLE_SETTINGS_OPEN,
   TOGGLE_ABOUT_OPEN,
-  TOGGLE_NOTES_DRAWER_OPEN
+  TOGGLE_NOTES_DRAWER_OPEN,
+  SET_BUFFER_SECONDS
 } from '../Types'
 
 export default (state, action) => {
@@ -12,7 +13,9 @@ export default (state, action) => {
         settingsOpen:
           typeof action.payload === 'boolean'
             ? action.payload
-            : !state.settingsOpen
+            : !state.settingsOpen,
+        aboutOpen: false,
+        notesDrawerOpen: false
       }
     case TOGGLE_ABOUT_OPEN:
       return {
@@ -20,7 +23,9 @@ export default (state, action) => {
         aboutOpen:
           typeof action.payload === 'boolean'
             ? action.payload
-            : !state.aboutOpen
+            : !state.aboutOpen,
+        settingsOpen: false,
+        notesDrawerOpen: false
       }
     case TOGGLE_NOTES_DRAWER_OPEN:
       return {
@@ -28,7 +33,14 @@ export default (state, action) => {
         notesDrawerOpen:
           typeof action.payload === 'boolean'
             ? action.payload
-            : !state.notesDrawerOpen
+            : !state.notesDrawerOpen,
+        settingsOpen: false,
+        aboutOpen: false
+      }
+    case SET_BUFFER_SECONDS:
+      return {
+        ...state,
+        bufferSeconds: action.payload
       }
     default:
       return state

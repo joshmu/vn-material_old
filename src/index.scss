@@ -1,3 +1,12 @@
+:root {
+  --blueGrey100: #cfd8dc;
+  --blueGrey500: #607d8b;
+  --indigoA100: #8c9eff;
+
+  // components
+  --drawerBg: var(--blueGrey100);
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;

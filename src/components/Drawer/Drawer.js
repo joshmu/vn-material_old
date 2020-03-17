@@ -15,7 +15,7 @@ import { todoContext } from '../../context/todo/TodoState'
 const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: '360px',
-    backgroundColor: 'rgba(225,225,235,1)'
+    backgroundColor: 'var(--drawerBg)'
   }
 }))
 

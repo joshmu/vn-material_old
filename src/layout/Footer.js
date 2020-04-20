@@ -22,27 +22,30 @@ const footerStyle = {
 const Footer = () => {
   const classes = useStyles()
   return (
-    <div style={footerStyle}>
-      <Typography display='block' variant='body2' align='center'>
-        Developed with{' '}
-        <FavoriteBorder
-          className={classes.icon}
-          style={{ color: 'rgb(250, 100, 100)' }}
-          fontSize='small'
-        />{' '}
-        by{' '}
-        <Link
-          color='inherit'
-          href='https://joshmu.com'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <strong>MU</strong>
-        </Link>{' '}
-        <Copyright className={classes.icon} fontSize='small' />
-        {new Date().getFullYear()}
-      </Typography>
-    </div>
+    <>
+      <div style={{ height: '3rem' }}></div>
+      <div style={footerStyle}>
+        <Typography display='block' variant='body2' align='center'>
+          Developed with{' '}
+          <FavoriteBorder
+            className={classes.icon}
+            style={{ color: 'rgb(250, 100, 100)' }}
+            fontSize='small'
+          />{' '}
+          by{' '}
+          <Link
+            color='inherit'
+            href='https://joshmu.com'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <strong>MU</strong>
+          </Link>{' '}
+          <Copyright className={classes.icon} fontSize='small' />
+          {new Date().getFullYear()}
+        </Typography>
+      </div>
+    </>
   )
 }
 

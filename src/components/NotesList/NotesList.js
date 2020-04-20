@@ -32,11 +32,11 @@ const NotesList = () => {
 
   return (
     <>
-      {todos.filter(t => t.url === player.props.url).length > 0 && (
-        <List className={style.notesList}>
+      {todos.filter((t) => t.url === player.props.url).length > 0 && (
+        <List className={style['notes-list']}>
           {todos
-            .filter(t => t.url === player.props.url)
-            .map(todo => (
+            .filter((t) => t.url === player.props.url)
+            .map((todo) => (
               <TodoItem key={todo.id} todo={todo} />
             ))}
         </List>

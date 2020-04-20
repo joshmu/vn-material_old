@@ -5,10 +5,11 @@ import { IconButton } from '@material-ui/core'
 import style from './timestamp.module.scss'
 
 const Timestamp = ({ seconds }) => {
+  const dateTime = `P${Math.round(seconds)}S`
   return (
     <div className={style.timestamp}>
-      <IconButton edge="end" aria-label="timestamp">
-        <time dateTime={`P${Math.round(seconds)}S`} className={style.time}>
+      <IconButton edge='end' aria-label='timestamp'>
+        <time dateTime={dateTime} className={style.time}>
           {format(seconds)}
         </time>
       </IconButton>
@@ -23,10 +24,7 @@ function format(seconds) {
   const hh = date.getUTCHours()
   const mm = date.getUTCMinutes()
   const ss = pad(date.getUTCSeconds())
-  if (hh) {
-    return `${hh}:${pad(mm)}:${ss}`
-  }
-  return `${mm}:${ss}`
+  return hh ? `${hh}:${pad(mm)}:${ss}` : `${mm}:${ss}`
 }
 
 function pad(string) {

@@ -20,9 +20,9 @@ import Settings from './components/Settings/Settings'
 import './index.scss'
 
 const appContainerStyle = {
-  height: '100vh',
+  // height: '100vh',
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
 }
 
 function App() {

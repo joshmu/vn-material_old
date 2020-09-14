@@ -1,4 +1,4 @@
-# VideoNote
+# VideoNote using Material UI - (deprecated)
 
 _Create timestamped notes based off video._
 
